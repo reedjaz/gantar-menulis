@@ -1,0 +1,71 @@
+<link rel="stylesheet" href="scene/a1-study/load.css">
+<section class="scene-bg ingame">
+    <div class="lay flex row justify-center items-center">
+        <div class="out1 flex column relative">
+            <div id="gantar-ingame" class="lottie-wrap">
+                <dotlottie-player
+                    src="assets/anim/gantar-greet-talk.json"
+                    background="transparent"
+                    speed="1"
+                    renderer="svg"
+                    id="gantar-greet-talk"
+                    class="flex full height-full lt-anim lt-talk hidden lt-flip"
+                    loop
+                    autoplay>
+                </dotlottie-player>
+                <dotlottie-player
+                    src="assets/anim/gantar-greet.json"
+                    background="transparent"
+                    speed="1"
+                    renderer="svg"
+                    id="gantar-greet"
+                    class="flex full height-full lt-anim lt-static lt-flip"
+                    loop
+                    autoplay>
+                </dotlottie-player>
+            </div>
+            <div class="flex row full justify-end items-center absolute bottom-0 p-7"><button class="read-btn" onclick="readAloud('vo-gantar-msg1')"><i data-lucide="volume-2"></i></button></div>
+        </div>
+        <div class="out2 flex column">
+            <div class="msgbox vo-text animate-fadeInRight duration-6 delay-2 easing-ease" id="vo-gantar-msg1">
+                <div class="callout"></div>
+                <div class="vo-text-wrap">Sebelum kita mulai mendengarkan dongeng, <span class="m-char">Gantar</span> punya <span class="m-thing">pertanyaan seru</span> untuk kamu. Apakah kamu siap untuk menjawabnya?</div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    
+    loadHeader('activity-1');
+    loadFooter('activity-1');
+    
+    setTimeout(() => {
+        const buttons = {
+            action: document.getElementById('btn-action'),
+        };
+        
+        const checks = {
+            action: () => { }
+        };
+        
+        const actions = {
+            action: () => {
+                loadSceneTrans('a1-study/p2', 'none', 'slide-left');
+                progressIncrease();
+            }
+        };
+        
+        for (const key in buttons) {
+            if (buttons[key]) {
+                checks[key]();
+                buttons[key].onclick = actions[key];
+            }
+        }
+
+        readAloud('vo-gantar-msg1');
+        
+    }, 450);
+
+    progressInit(8, 0);
+    
+</script>

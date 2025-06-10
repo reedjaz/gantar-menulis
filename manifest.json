@@ -1,0 +1,20 @@
+{
+    "name": "Gantar - Serunya Belajar",
+    "short_name": "Gantar",
+    "start_url": "./index.html",
+    "display": "fullscreen",
+    "background_color": "#6366F0",
+    "theme_color": "#6366F0",
+    "icons": [
+      {
+        "src": "icon.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "splash.png",
+        "sizes": "1920x1920",
+        "type": "image/png"
+      }
+    ]
+  }

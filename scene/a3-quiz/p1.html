@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="scene/a3-quiz/load.css">
+<section class="scene-bg ingame">
+    <div class="lay flex column justify-center items-center gap-12">
+        <div class="question flex column">
+            <span class="inline">Manakah yang merupakan tokoh utama dalam cerita <span class="m-thing">“Kue Kimu”</span>?</span>
+        </div>
+        <div class="flex row gap-12 full">
+            <button class="btn-answer act-choice is-image medium full text-transparent ratio-3-2 bg-normalize cover" data-btn-group="soal-a3-p1" style="background-image: url('scene/a3-quiz/img/ch-beru.jpg');">Si beruang itu</button>
+            <button class="btn-answer act-choice is-image medium full text-transparent ratio-3-2 bg-normalize cover" data-btn-group="soal-a3-p1" style="background-image: url('scene/a3-quiz/img/ch-kimu.jpg');">Kimu</button>
+            <button class="btn-answer act-choice is-image medium full text-transparent ratio-3-2 bg-normalize cover" data-btn-group="soal-a3-p1" style="background-image: url('scene/a3-quiz/img/ch-nara.jpg');">Nara</button>
+        </div>
+    </div>
+</section>
+<script>
+
+    loadHeader('activity-3');
+    loadFooter('activity-3');
+
+    setTimeout(() => {
+        const buttons = {
+            action: document.getElementById('btn-action'),
+        };
+
+        const checks = {
+            action: () => { }
+        };
+
+        const actions = {
+            action: () => {
+                const isCorrect = checkAnswer("soal-a3-p1", [
+                    "Kimu",
+                ]);
+                const title = isCorrect
+                    ? "Bagus!"
+                    : "Aduh, bukan itu...";
+                const message = isCorrect
+                    ? "Kimu adalah tokoh utama dari cerita “Kue Kimu”."
+                    : `${window.selectedAnswers['soal-a3-p1']} bukan tokoh utama dari cerita “Kue Kimu”.`;
+
+                showFeedbackSheet(isCorrect, title, message, () => {
+                    destroyAnswerButton();
+                    loadSceneTrans('a3-quiz/p2', 'none', 'slide-left');
+                }, undefined, true);
+            },
+        };
+
+        for (const key in buttons) {
+            if (buttons[key]) {
+                checks[key]();
+                buttons[key].onclick = actions[key];
+            }
+        }
+
+        setupAnswerButtonListeners();
+        progressInit(6, 0);
+
+    }, 450);
+    
+    applyInputBlocker(1000);
+
+</script>

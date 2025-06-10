@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="scene/a4-play/level-4/load.css">
+<section class="scene-bg ingame">
+    <div class="lay flex column justify-center items-center gap-12">
+        <div class="out-top flex column justify-center items-center gap-7">
+            <div class="question flex column">
+                <span class="inline">
+                    Dengarkan suara berikut
+                    <button class="read-btn mx-3 inline-flex" onclick="soundman.stopChannel('voice'); soundman.play('vo-gantar-game2e');">
+                        <i data-lucide="volume-2"></i>
+                    </button>
+                    lalu susun suku kata di bawah ini menjadi sebuah kalimat yang tepat.
+                </span>
+            </div>
+        </div>
+        <div class="build-answer flex column gap-4 full justify-center items-center">
+            <div class="final-answer advanced flex row">
+            </div>
+            <div class="separator-0 pb-5 mb-3 vertical full border-color-slate-300"></div>
+            <div class="answer-choices advanced flex row">
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+
+    loadFooter('activity-4');
+
+    setTimeout(() => {
+        const buttons = {
+            action: document.getElementById('btn-action'),
+        };
+
+        const checks = {
+            action: () => { }
+        };
+
+        const actions = {
+            action: () => {
+                const isCorrect = checkAnswerAdv("soal-a4-l4-p5", [
+                    "MENGHIAS KUE",
+                ]);
+                const title = isCorrect
+                    ? "Mantap!"
+                    : "Belum tepat.";
+                const message = isCorrect
+                    ? "Kue yang dihias Kimu sangat indah!"
+                    : "Ada yang salah urutannya, mungkin?";
+
+                showFeedbackSheet(isCorrect, title, message, () => {
+                    destroyBuildAnswer();
+                    loadSceneTrans('a4-play/level-4/end', 'both', 'zoom-out');
+                }, undefined, true);
+            },
+        };
+
+        for (const key in buttons) {
+            if (buttons[key]) {
+                checks[key]();
+                buttons[key].onclick = actions[key];
+            }
+        }
+
+        initBuildAnswerAdv();
+
+        setTimeout(() => {
+            soundman.play('vo-gantar-game2e');
+        }, 250)
+
+    }, 450);
+
+    populateJumbledSentence("MENG-HI-AS KU-E", "soal-a4-l4-p5");
+    applyInputBlocker(800);
+
+</script>

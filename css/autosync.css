@@ -1,0 +1,11 @@
+.vo-text-wrap span {
+    display: inline;
+    border-radius: var(--rounded-16);
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+    margin: 0 calc(var(--unit-3) * -1) calc(var(--unit-1) * -1) calc(var(--unit-3) * -1);
+    padding: 0 var(--unit-3) var(--unit-1) var(--unit-3);
+}
+.vo-text-wrap span.highlight {
+    color: var(--slate-700);
+    background-color: var(--amber-300);
+}

@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="scene/a3-quiz/load.css">
+<section class="flex column justify-center items-center height-100 gap-10">
+    <div class="loading-screen">
+        <div class="text-size-8 line-height-8 weight-bold text-slate-700">Memuat...</div>
+        <progress id="loading-progress" class="width-50 height-2vh" max="9" value="0"></progress>
+    </div>
+</section>
+<script>
+
+    var progressBar = document.getElementById('loading-progress');
+    var assets = [
+        'assets/anim/gantar-correct.json',
+        'assets/anim/gantar-correct-talk.json',
+        'assets/anim/gantar-explain.json',
+        'assets/anim/gantar-explain-talk.json',
+        'assets/anim/gantar-greet.json',
+        'assets/anim/gantar-greet-talk.json',
+        'assets/anim/gantar-listen.json',
+        'assets/anim/gantar-listen-talk.json',
+        'assets/anim/gantar-despair.json'
+    ];
+
+    if (progressBar) progressBar.max = assets.length;
+
+    preloadAssets(assets,
+        (loaded, total) => {
+            if (progressBar) progressBar.value = loaded;
+        },
+        () => {
+            console.log("Semua aset sudah preload, siap lanjut!");
+            const loadingScreen = document.querySelector('.loading-screen');
+            if (loadingScreen) loadingScreen.remove();
+            loadSceneTrans('a3-quiz/p0', 'both', 'zoom-in');
+        }
+    );
+
+    delete progressBar;
+    delete assets;
+
+</script>

@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="scene/a2-listen/load.css">
+<section class="scene-bg bg-p9">
+    
+    <div class="flex row">
+        
+        <div class="story-area">
+            <div class="story-text" style="transform: translate(0vh, 29vh);">
+                <button class="read-btn" onclick="readAloud('vo-story-12')"><i data-lucide="volume-2"></i></button>
+                <div id="vo-story-12" class="vo-text">
+                    <span class="vo-text-wrap">
+                        Ini kue bingka untuk Nara.<br>
+                        Semoga kaki Nara cepat sembuh.
+                    </span>
+                    <div class="read-backdrop" style="background-color: #DFB35A;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="story-area">
+            <div class="story-text" style="transform: translate(0vh, 29vh);">
+                <button class="act-correct btn-decide" onclick="
+                    loadSceneTrans('a2-listen/p10', 'footer', 'slide-left');
+                    progressIncrease();
+                "><i data-lucide="book-open-check"></i>Selesai</button>
+            </div>
+        </div>
+        
+    </div>
+    
+</section>
+<script>
+
+    loadFooter('activity-2');
+
+    setTimeout(() => {
+        const buttons = {
+            reset: document.getElementById('btn-reset'),
+            prev: document.getElementById('btn-prev'),
+            next: document.getElementById('btn-next'),
+        };
+
+        const checks = {
+            reset: () => { },
+            prev: () => { },
+            next: () => {
+                const p = buttons.next?.parentElement;
+                if (p) p.classList.add('disabled');
+            }
+        };
+
+        const actions = {
+            reset: () => loadSceneTrans('a2-listen/p0', 'both', 'zoom-out'),
+            prev: () => {
+                loadSceneTrans('a2-listen/p8', 'footer', 'slide-right');
+                progressDecrease();
+
+            },
+            next: () => { },
+        };
+
+        for (const key in buttons) {
+            if (buttons[key]) {
+                checks[key]();
+                buttons[key].onclick = actions[key];
+            }
+        }
+    }, 450);
+
+</script>

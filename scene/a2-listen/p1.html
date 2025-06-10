@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="scene/a2-listen/load.css">
+<section class="scene-bg bg-p1 relative">
+    <div class="absolute book-cover-bg flex column full height-100 animate-fadeIn duration-10 delay-2 easing-ease"></div>
+    <div class="absolute book-cover flex column full height-100 animate-fadeInUp duration-6 delay-3 easing-ease"></div>
+</section>
+<script>
+    
+    loadHeader('activity-2');
+    loadFooter('activity-2');
+    
+    setTimeout(() => {
+        const buttons = {
+            reset: document.getElementById('btn-reset'),
+            prev: document.getElementById('btn-prev'),
+            next: document.getElementById('btn-next'),
+        };
+        
+        const checks = {
+            reset: () => { },
+            prev: () => {
+                const p = buttons.prev?.parentElement;
+                if (p) p.classList.add('disabled');
+            },
+            next: () => { }
+        };
+        
+        const actions = {
+            reset: () => loadSceneTrans('a2-listen/p0', 'both', 'zoom-out'),
+            prev: () => { },
+            next: () => {
+                loadSceneTrans('a2-listen/p2', 'footer', 'slide-left');
+                progressIncrease();
+            },
+        };
+        
+        for (const key in buttons) {
+            if (buttons[key]) {
+                checks[key]();
+                buttons[key].onclick = actions[key];
+            }
+        }
+    }, 450);
+    
+    progressInit(9, 0);
+    
+</script>

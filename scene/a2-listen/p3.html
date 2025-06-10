@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="scene/a2-listen/load.css">
+<section class="scene-bg bg-p3">
+
+    <div class="flex row">
+    
+        <div class="story-area">
+        </div>
+    
+        <div class="story-area">
+            <div class="story-text" style="transform: translate(0vh, 29vh);">
+                <button class="read-btn" onclick="readAloud('vo-story-3')"><i data-lucide="volume-2"></i></button>
+                <div id="vo-story-3" class="vo-text">
+                    <span class="vo-text-wrap">
+                        Nara suka kue bingka pisang.<br>
+                        Kimu bisa membuatnya.
+                    </span>
+                    <div class="read-backdrop" style="background-color: #EACD89;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+</section>
+<script>
+    
+    loadFooter('activity-2');
+    
+    setTimeout(() => {
+        const buttons = {
+            reset: document.getElementById('btn-reset'),
+            prev: document.getElementById('btn-prev'),
+            next: document.getElementById('btn-next'),
+        };
+        
+        const checks = {
+            reset: () => { },
+            prev: () => { },
+            next: () => { }
+        };
+        
+        const actions = {
+            reset: () => loadSceneTrans('a2-listen/p0', 'both', 'zoom-out'),
+            prev: () => {
+                loadSceneTrans('a2-listen/p2', 'footer', 'slide-right');
+                progressDecrease();
+            },
+            next: () => {
+                loadSceneTrans('a2-listen/p4', 'footer', 'slide-left');
+                progressIncrease();
+            },
+        };
+        
+        for (const key in buttons) {
+            if (buttons[key]) {
+                checks[key]();
+                buttons[key].onclick = actions[key];
+            }
+        }
+    }, 450);
+    
+</script>

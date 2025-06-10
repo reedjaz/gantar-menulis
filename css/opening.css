@@ -1,0 +1,148 @@
+/* .stage.init:before {
+    content: "";
+    transition: none;
+    opacity: 1;
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    pointer-events: none;
+    user-select: none;
+}
+
+.stage:before {
+    content: "";
+    background: var(--white);
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    opacity: 0;
+    transition: all var(--transition-slow) ease;
+    z-index: 50;
+    pointer-events: none;
+    user-select: none;
+} */
+
+.scene.scene-splash {
+    background-color: var(--white);
+}
+
+.splash-screen {
+    position: absolute;
+    transition: opacity 0.5s ease;
+    text-align: center;
+    z-index: 1024;
+    opacity: 0;
+    visibility: visible;
+    cursor: none;
+}
+
+.splash-screen.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.splash-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.splash-screen button {
+    pointer-events: auto;
+}
+
+#screen4 {
+    cursor: auto;
+}
+
+.loading-screen {
+    z-index: 99;
+    justify-content: center;
+    align-items: center;
+}
+.loading-screen.hidden {
+    display: none !important;
+}
+
+progress {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    height: var(--vh-2);
+    border-radius: var(--rounded-full);
+    background-color: var(--slate-300);
+    overflow: hidden;
+    border: none;
+}
+
+/* Bar warna untuk Chrome & Edge */
+progress::-webkit-progress-bar {
+    background-color: var(--slate-300);
+    border-radius: var(--rounded-full);
+}
+
+progress::-webkit-progress-value {
+    background: var(--indigo-600);
+    border-radius: var(--rounded-full);
+    transition: width var(--transition-slow) ease;
+}
+
+/* Firefox */
+progress::-moz-progress-bar {
+    background: var(--indigo-600);
+    border-radius: var(--rounded-full);
+    transition: width var(--transition-slow) ease;
+}
+
+#activity-progress {
+    height: var(--vh-3);
+}
+
+#step-indicator, #point-indicator {
+    font-size: var(--unit-10);
+    line-height: var(--unit-10);
+    font-weight: bold;
+    gap: var(--unit-2);
+    align-items: center;
+}
+#point-indicator {
+    gap: var(--unit-5);
+}
+
+#point-icon {
+    width: var(--unit-13);
+    height: var(--unit-13);
+}
+#point-icon img {
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+}
+
+#header:has(.slim) progress {
+    height: var(--unit-2);
+    border-radius: 0;
+    background-color: var(--transparent);
+    overflow: hidden;
+    border: none;
+}
+
+/* Bar warna untuk Chrome & Edge */
+#header:has(.slim) progress::-webkit-progress-bar {
+    background-color: var(--transparent);
+    border-radius: 0;
+}
+
+#header:has(.slim) progress::-webkit-progress-value {
+    background: var(--indigo-600);
+    border-radius: 0;
+    transition: width var(--transition-slow) ease;
+}
+
+/* Firefox */
+#header:has(.slim) progress::-moz-progress-bar {
+    background: var(--indigo-600);
+    border-radius: 0;
+    transition: width var(--transition-slow) ease;
+}

@@ -1,0 +1,73 @@
+<link rel="stylesheet" href="scene/a3-quiz/load.css">
+<section class="scene-bg ingame">
+    <div class="lay flex column justify-center items-center gap-12">
+        <div class="out-top flex column justify-center items-center gap-7">
+            <div class="hint">Lengkapi kata berikut ini.</div>
+            <div class="question flex column">
+                <span class="inline">Siapa yang membantu <span class="m-char">Kimu</span> ketika membuat kue <span class="m-thing">bingka pisang</span>?</span>
+            </div>
+        </div>
+        <div class="build-answer flex column gap-4 full justify-center items-center">
+            <div class="final-answer flex row">
+                <button class="btn-answer extralegible act-answer medium locked" data-btn-group="soal-a3-p2">KA</button>
+            </div>
+            <div class="separator-0 pb-5 mb-3 vertical full border-color-slate-300"></div>
+            <div class="answer-choices flex row">
+                <button class="btn-answer extralegible act-answer medium" data-btn-group="soal-a3-p2">KAK</button>
+                <button class="btn-answer extralegible act-answer medium" data-btn-group="soal-a3-p2">KI</button>
+                <button class="btn-answer extralegible act-answer medium" data-btn-group="soal-a3-p2">KU</button>
+                <button class="btn-answer extralegible act-answer medium" data-btn-group="soal-a3-p2">KEK</button>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+
+    loadFooter('activity-3');
+
+    setTimeout(() => {
+        const buttons = {
+            action: document.getElementById('btn-action'),
+        };
+
+        const checks = {
+            action: () => { }
+        };
+
+        const actions = {
+            action: () => {
+                const isCorrect = checkAnswer("soal-a3-p2", [
+                    "KAKAK",
+                ]);
+                const title = isCorrect
+                    ? "Jawabanmu benar!"
+                    : "Salah...";
+                const message = isCorrect
+                    ? "Kakak membantu Kimu meniup api di tungku."
+                    : getFinalAnswerText() === "KAKI"
+                        ? "Kaki siapa yang dimaksud?"
+                        : getFinalAnswerText() === "KAKU"
+                            ? "Aduh, apa yang kaku?"
+                            : "Apakah kakek ada dalam cerita?";
+                
+                showFeedbackSheet(isCorrect, title, message, () => {
+                    destroyBuildAnswer();
+                    loadSceneTrans('a3-quiz/p3', 'none', 'slide-left');
+                }, undefined, true);
+            },
+        };
+
+        for (const key in buttons) {
+            if (buttons[key]) {
+                checks[key]();
+                buttons[key].onclick = actions[key];
+            }
+        }
+
+        initBuildAnswer(1);
+
+    }, 450);
+
+    applyInputBlocker(800);
+
+</script>

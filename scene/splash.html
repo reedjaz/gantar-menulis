@@ -1,0 +1,81 @@
+<div class="loading-screen flex column justify-center items-center height-100 width-100 gap-10">
+    <div class="text-size-8 line-height-8 weight-bold text-slate-700">Memuat...</div>
+    <progress id="loading-progress" class="width-50 height-2vh" max="10" value="0"></progress>
+</div>
+
+<div class="splash-sequence">
+    <div class="splash-screen flex column justify-center items-center height-100 width-100 text-size-8 gap-4 unsel-reset"
+        id="screen1">
+    </div>
+    <div class="splash-screen hidden flex column justify-center items-center height-100 width-100 text-size-8 gap-4 unsel-reset"
+        id="screen2">
+        <img src="assets/tut-wuri.svg" class="height-17 unsel" alt="Kemendikdasmen" />
+    </div>
+    <div class="splash-screen hidden flex column justify-center items-center height-100 width-100 text-size-8 gap-4 unsel-reset"
+        id="screen3">
+        <img src="assets/thinkin.svg" class="height-16 unsel" alt="Thinkin Studio" />
+    </div>
+    <div class="splash-screen hidden flex column justify-center items-center height-100 width-100 surface-slate-100 text-size-8 gap-4"
+        id="screen4">
+        <button class="act-correct" onclick="
+            loadSceneTrans('title', 'both', 'zoom-out');
+            goFullscreen();
+        "><i data-lucide="play"></i>Mulai</button>
+    </div>
+</div>
+<!-- <div class="flex column justify-center items-center height-100 width-100 text-size-8 gap-4"
+    id="screen3">
+    <button class="btn-click">Generic</button>
+    <div class="flex row gap-4">
+        <button class="btn-click act-study">Study</button>
+        <button class="btn-click act-listen">Listen</button>
+        <button class="btn-click act-quiz">Quiz</button>
+        <button class="btn-click act-play">Play</button>
+    </div>
+    <div class="flex row gap-4">
+        <button class="btn-click act-wrong">Wrong</button>
+        <button class="btn-click act-correct">Correct</button>
+        <button class="btn-click act-neutral">Neutral</button>
+    </div>
+    <div class="flex row gap-4">
+        <button class="btn-click act-answer">Answer</button>
+        <button class="btn-click act-answer selected">Answer Selected</button>
+    </div>
+    <div class="flex row gap-4">
+        <button class="btn-click act-choice">Choice</button>
+        <button class="btn-click act-choice selected">Answer Selected</button>
+    </div>
+</div> -->
+
+<script>
+
+    var progressBar = document.getElementById('loading-progress');
+    var assets = [
+        'assets/anim/gantar-correct.json',
+        'assets/anim/gantar-correct-talk.json',
+        'assets/anim/gantar-explain.json',
+        'assets/anim/gantar-explain-talk.json',
+        'assets/anim/gantar-greet.json',
+        'assets/anim/gantar-greet-talk.json',
+        'assets/anim/gantar-listen.json',
+        'assets/anim/gantar-listen-talk.json',
+        'assets/anim/gantar-despair.json'
+    ];
+
+    if (progressBar) progressBar.max = assets.length;
+
+    preloadAssets(assets,
+        (loaded, total) => {
+            if (progressBar) progressBar.value = loaded;
+        },
+        () => {
+            console.log("Semua aset sudah preload, siap lanjut!");
+            const loadingScreen = document.querySelector('.loading-screen');
+            if (loadingScreen) loadingScreen.remove();
+        }
+    );
+
+    delete progressBar;
+    delete assets;
+
+</script>
