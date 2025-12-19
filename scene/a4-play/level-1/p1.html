@@ -14,13 +14,17 @@
             </div>
             <div class="build-answer flex column gap-4 full justify-center items-center">
                 <div class="final-answer flex row fullword">
-                    <button class="btn-answer extralegible act-answer medium locked" data-btn-group="soal-a4-l1-p1">MI</button>
+                    <button class="btn-answer extralegible act-answer medium locked"
+                        data-btn-group="soal-a4-l1-p1">MI</button>
                 </div>
                 <div class="separator-0 pb-5 mb-3 vertical full border-color-slate-300"></div>
                 <div class="answer-choices flex row fullword">
-                    <button class="btn-answer extralegible act-answer medium" data-btn-group="soal-a4-l1-p1">NYAK</button>
-                    <button class="btn-answer extralegible act-answer medium" data-btn-group="soal-a4-l1-p1">CIN</button>
-                    <button class="btn-answer extralegible act-answer medium" data-btn-group="soal-a4-l1-p1">NGGU</button>
+                    <button class="btn-answer extralegible act-answer medium"
+                        data-btn-group="soal-a4-l1-p1">NYAK</button>
+                    <button class="btn-answer extralegible act-answer medium"
+                        data-btn-group="soal-a4-l1-p1">CIN</button>
+                    <button class="btn-answer extralegible act-answer medium"
+                        data-btn-group="soal-a4-l1-p1">NGGU</button>
                 </div>
             </div>
         </div>
@@ -28,8 +32,18 @@
 </section>
 <script>
 
-    loadHeader('activity-4');
-    loadFooter('activity-4');
+    loadHeader('activity-quiz', {
+        maxStep: 5,
+        currentStep: 1,
+        pointIcon: 'assets/correct.svg',
+        backAction: "loadSceneTrans('a4-play/lobby', 'both', 'slide-right')",
+        backLabel: "Kembali"
+    });
+    loadFooter('activity', {
+        title: "<b>Aktivitas 4</b> Bermain bersama Gantar",
+        actionLabel: '<i data-lucide="circle-check"></i>Cek Jawaban',
+        btnClass: "act-study px-4 disabled"
+    });
 
     setTimeout(() => {
         const buttons = {

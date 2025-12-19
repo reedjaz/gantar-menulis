@@ -18,7 +18,18 @@
 </section>
 <script>
 
-    loadFooter('activity-4');
+    loadHeader('activity-quiz', {
+        maxStep: 5,
+        currentStep: 2,
+        pointIcon: 'assets/correct.svg',
+        backAction: "loadSceneTrans('a4-play/lobby', 'both', 'slide-right')",
+        backLabel: "Kembali"
+    });
+    loadFooter('activity', {
+        title: "<b>Aktivitas 4</b> Bermain bersama Gantar",
+        actionLabel: '<i data-lucide="circle-check"></i>Cek Jawaban',
+        btnClass: "act-study px-4 disabled"
+    });
 
     setTimeout(() => {
         const buttons = {

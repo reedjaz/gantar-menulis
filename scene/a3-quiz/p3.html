@@ -18,7 +18,17 @@
 </section>
 <script>
 
-    loadFooter('activity-3');
+    loadHeader('activity-quiz', {
+        maxStep: 6,
+        currentStep: 3,
+        backAction: "loadSceneTrans('a3-quiz/load', 'both', 'slide-right')",
+        backLabel: "Kembali"
+    });
+    loadFooter('activity', {
+        title: "<b>Aktivitas 3</b> Kuis Seru",
+        actionLabel: '<i data-lucide="circle-check"></i>Cek Jawaban',
+        btnClass: "act-study px-4 disabled"
+    });
 
     setTimeout(() => {
         const buttons = {
@@ -40,7 +50,7 @@
                 const message = isCorrect
                     ? "Yang sakit adalah kaki Nara."
                     : `${String(getFinalAnswerText()).charAt(0).toUpperCase() + String(getFinalAnswerText()).slice(1).toLowerCase()} bukan jawaban yang tepat!`;
-                
+
                 showFeedbackSheet(isCorrect, title, message, () => {
                     destroyBuildAnswer();
                     loadSceneTrans('a3-quiz/p4', 'none', 'slide-left');
@@ -54,11 +64,11 @@
                 buttons[key].onclick = actions[key];
             }
         }
-        
+
         initBuildAnswer();
-        
+
     }, 450);
-    
+
     populateAnswerLetters('KAKI', 'soal-a3-p3', 8, true);
     applyInputBlocker(800);
 

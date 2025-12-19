@@ -3,25 +3,12 @@
     <div class="lay flex row justify-center items-center">
         <div class="out1 flex column relative">
             <div id="gantar-ingame" class="lottie-wrap">
-                <dotlottie-player
-                    src="assets/anim/gantar-greet-talk.json"
-                    background="transparent"
-                    speed="1"
-                    renderer="svg"
-                    id="gantar-greet-talk"
-                    class="flex full height-full lt-anim lt-talk hidden lt-flip"
-                    loop
-                    autoplay>
+                <dotlottie-player src="assets/anim/gantar-greet-talk.json" background="transparent" speed="1"
+                    renderer="svg" id="gantar-greet-talk" class="flex full height-full lt-anim lt-talk hidden lt-flip"
+                    loop autoplay>
                 </dotlottie-player>
-                <dotlottie-player
-                    src="assets/anim/gantar-greet.json"
-                    background="transparent"
-                    speed="1"
-                    renderer="svg"
-                    id="gantar-greet"
-                    class="flex full height-full lt-anim lt-static lt-flip"
-                    loop
-                    autoplay>
+                <dotlottie-player src="assets/anim/gantar-greet.json" background="transparent" speed="1" renderer="svg"
+                    id="gantar-greet" class="flex full height-full lt-anim lt-static lt-flip" loop autoplay>
                 </dotlottie-player>
             </div>
             <div class="flex row full justify-end items-center absolute bottom-0 p-7">
@@ -33,7 +20,8 @@
         <div class="out2 flex column gap-11">
             <div class="msgbox vo-text animate-fadeInRight duration-6 delay-2 easing-ease" id="vo-gantar-msg6">
                 <div class="callout bottom"></div>
-                <div class="vo-text-wrap">Sebelum mulai menyimak dongeng yang menarik ini, apakah kamu sudah tahu apa itu <span class="m-thing">dongeng</span>?</div>
+                <div class="vo-text-wrap">Sebelum mulai menyimak dongeng yang menarik ini, apakah kamu sudah tahu apa
+                    itu <span class="m-thing">dongeng</span>?</div>
             </div>
             <div class="flex row animate-fadeInUp duration-6 delay-4 easing-ease gap-10">
                 <button class="btn-answer act-answer medium full" data-btn-group="soal-a1-p6">Tahu</button>
@@ -44,24 +32,28 @@
     </div>
 </section>
 <script>
-    
-    loadFooter('activity-1-a');
-    
+
+    loadFooter('activity', {
+        title: "<b>Aktivitas 1</b> Pengantar Pembelajaran",
+        actionLabel: "Cek Jawaban",
+        btnClass: "act-study disabled"
+    });
+
     setTimeout(() => {
         const buttons = {
             action: document.getElementById('btn-action'),
         };
-        
+
         const checks = {
             action: () => { }
         };
-        
+
         const actions = {
             action: () => {
                 const isCorrect = checkAnswer("soal-a1-p6", [
-                "Tahu",
-                "Tidak tahu",
-                "Lupa",
+                    "Tahu",
+                    "Tidak tahu",
+                    "Lupa",
                 ]);
                 const title = isCorrect
                     ? window.selectedAnswers['soal-a1-p6'] === "Tahu"
@@ -77,7 +69,7 @@
                             ? "Kita akan cari tahu sebentar lagi."
                             : "Yuk, kita ingat-ingat kembali."
                     : "Sepertinya itu kurang tepat.";
-                
+
                 stopAllVOHighlight();
 
                 showFeedbackSheet(isCorrect, title, message, () => {
@@ -86,47 +78,47 @@
                 });
             },
         };
-        
+
         for (const key in buttons) {
             if (buttons[key]) {
                 checks[key]();
                 buttons[key].onclick = actions[key];
             }
         }
-        
+
         const allButtons = document.querySelectorAll('.btn-answer');
-        
+
         allButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const group = button.dataset.btnGroup;
-                
+
                 document.querySelectorAll(`.btn-answer[data-btn-group="${group}"]`)
-                .forEach(btn => btn.classList.remove('selected'));
-                
+                    .forEach(btn => btn.classList.remove('selected'));
+
                 soundman.play('click');
-                
+
                 button.classList.add('selected');
-                
+
                 const selectedValue = button.textContent.trim();
                 console.log(`Selected answer for ${group}: ${selectedValue}`);
-                
+
                 window.selectedAnswers = window.selectedAnswers || {};
                 window.selectedAnswers[group] = selectedValue;
-                
+
                 const btnAction = document.getElementById('btn-action');
                 if (window.selectedAnswers[group]) {
                     btnAction.classList.remove('disabled');
                 } else {
                     btnAction.classList.add('disabled');
                 }
-                
+
             });
         });
 
         readAloud('vo-gantar-msg6');
-        
+
     }, 450);
-    
+
     applyInputBlocker(1200);
-    
+
 </script>

@@ -5,7 +5,7 @@ const soundman = {
         'bgm-listen': 'assets/audio/bgm-listen.mp3',
         'bgm-quiz': 'assets/audio/bgm-quiz.mp3',
         'bgm-play': 'assets/audio/bgm-play.mp3',
-        
+
         'click': 'assets/audio/click.mp3',
         'cancel': 'assets/audio/cancel.mp3',
         'decide': 'assets/audio/decide.mp3',
@@ -84,27 +84,66 @@ const soundman = {
     },
 
     init() {
-        for (let name in this.sources) {
-            const audio = new Audio(this.sources[name]);
-            audio.preload = 'auto';
-
-            if (name.startsWith('bgm-')) {
-                audio.loop = true;
-                this.channels.bgm[name] = audio;
-            } else {
-                this.sounds[name] = audio;
-            }
-        }
+        // init is now empty to prevent massive preloading
     },
 
     play(name, volume = 1.0) {
+        if (!this.sources[name]) {
+            console.warn(`Sound source not found: ${name}`);
+            return null;
+        }
+
+        let rawSrc = this.sources[name];
+        if (window.OFFLINE_CONTENT && window.OFFLINE_CONTENT[rawSrc]) {
+            rawSrc = window.OFFLINE_CONTENT[rawSrc];
+            // console.log(`[Offline] Audio loaded from bundle: ${name}`);
+        }
+
+        // Lazy load for BGM
         if (name.startsWith('bgm-')) {
+            console.log(`[Soundman] Attempting to play BGM: ${name}`);
+            if (!this.channels.bgm[name]) {
+                const audio = new Audio(rawSrc);
+                audio.loop = true;
+                this.channels.bgm[name] = audio;
+            }
+
             const bgmAudio = this.channels.bgm[name];
-            if (!bgmAudio) return null;
-            bgmAudio.currentTime = 0;
+            if (bgmAudio.paused || bgmAudio.ended) {
+                bgmAudio.currentTime = 0;
+            }
             bgmAudio.volume = volume;
-            bgmAudio.play().catch(err => console.warn('Autoplay BGM gagal:', err));
+            bgmAudio.muted = false;
+
+            const playPromise = bgmAudio.play();
+
+            if (playPromise !== undefined) {
+                playPromise
+                    .then(() => {
+                        console.log(`[Soundman] BGM ${name} started successfully.`);
+                    })
+                    .catch(error => {
+                        console.warn(`[Soundman] Autoplay preventing BGM ${name}. Waiting for interaction...`, error);
+                        // Fallback: Play on next interaction
+                        const resumeAudio = () => {
+                            bgmAudio.play();
+                            document.removeEventListener('click', resumeAudio);
+                            document.removeEventListener('keydown', resumeAudio);
+                            document.removeEventListener('touchstart', resumeAudio);
+                        };
+                        document.addEventListener('click', resumeAudio);
+                        document.addEventListener('keydown', resumeAudio);
+                        document.addEventListener('touchstart', resumeAudio);
+                    });
+            }
             return bgmAudio;
+        }
+
+        // Lazy load for SFX/VO base object
+        if (!this.sounds[name]) {
+            const audio = new Audio(rawSrc);
+            audio.preload = 'auto'; // hint for future usage
+            this.sounds[name] = audio;
         }
 
         let channelName = 'sfx';
@@ -113,8 +152,7 @@ const soundman = {
         }
 
         const baseSound = this.sounds[name];
-        if (!baseSound) return null;
-
+        // Note: cloneNode() relies on the base audio element having a src
         const clone = baseSound.cloneNode();
         clone.volume = volume;
         clone.play().catch(err => console.warn(`Play ${channelName} ${name} gagal:`, err));
@@ -188,7 +226,7 @@ const soundman = {
                     }
                 }
             });
-    
+
             this.channels[channelName] = [];
         }
     },
@@ -205,17 +243,26 @@ const soundman = {
                 resolve();
                 return;
             }
-    
+
+            // Optimization: If duration is very short, stop immediately
+            // This preserves the "User Interaction" context for the next play() call
+            if (duration < 50) {
+                audio.pause();
+                audio.currentTime = 0;
+                resolve();
+                return;
+            }
+
             const step = 50;
             const stepsCount = duration / step;
             let currentStep = 0;
             const startVol = audio.volume;
-    
+
             const fadeInterval = setInterval(() => {
                 currentStep++;
                 const newVol = startVol * (1 - currentStep / stepsCount);
                 audio.volume = Math.max(newVol, 0);
-    
+
                 if (currentStep >= stepsCount) {
                     clearInterval(fadeInterval);
                     audio.pause();
@@ -224,8 +271,8 @@ const soundman = {
                 }
             }, step);
         });
-    },      
-     
+    },
+
 };
 
 soundman.isPlaying = function (name) {
@@ -238,7 +285,7 @@ soundman.isPlaying = function (name) {
     }
 };
 
-soundman.toggleMuteAllBgm = function(mute) {
+soundman.toggleMuteAllBgm = function (mute) {
     Object.values(this.channels.bgm).forEach(audio => {
         audio.muted = mute;
     });
@@ -258,5 +305,5 @@ window.addEventListener('DOMContentLoaded', () => {
             soundman.channels.voice.forEach(s => s.muted = false);
         }
     });
-      
+
 });

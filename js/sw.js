@@ -1,4 +1,4 @@
-self.addEventListener('fetch', function(event) {
+self.addEventListener('fetch', function (event) {
   // Default caching behavior
 });
 
@@ -45,11 +45,11 @@ function loadAnim({ containerId, path }) {
   el.innerHTML = '';
 
   el._anim = lottie.loadAnimation({
-      container: el,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path
+    container: el,
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path
   });
 
   return el._anim;
@@ -64,15 +64,15 @@ function checkAspectRatio() {
   // Rasio-ratio yang tidak didukung
   const unsupportedRatios = [
     { max: 0.9 },            // portrait (<= 0.9)
-    { min: 0.9,  max: 1.1 }, // square-ish
-    { min: 1.1,  max: 1.24 }, // 5:4 area
+    { min: 0.9, max: 1.1 }, // square-ish
+    { min: 1.1, max: 1.24 }, // 5:4 area
     { min: 1.24, max: 1.52 }  // 3:2 & 4:3 area
   ];
 
   const isUnsupported = unsupportedRatios.some(r => {
     const min = r.min !== undefined ? r.min : -Infinity;
     const max = r.max !== undefined ? r.max : Infinity;
-  
+
     return ratio >= min && ratio <= max;
   });
 

@@ -7,14 +7,16 @@ function kebabToCamel(str) {
 function readAloud(nameKebab, play = true) {
     const nameCamel = kebabToCamel(nameKebab);
     const talkEls = document.querySelectorAll('.lt-talk');
+    const staticEls = document.querySelectorAll('.lt-static');
 
-    console.log(`Jumlah talkEl ditemukan: ${talkEls.length}`);
-    
+    console.log(`Jumlah talkEl: ${talkEls.length}, staticEl: ${staticEls.length}`);
+
     setTimeout(() => {
         talkEls.forEach(el => el.classList.remove('hidden'));
+        staticEls.forEach(el => el.classList.add('hidden'));
     }, 300);
 
-    return fetch(`assets/autosync/${nameKebab}.json`)
+    return fetchOrBundle(`assets/autosync/${nameKebab}.json`)
         .then(res => {
             if (!res.ok) throw new Error(`Gagal load ${nameKebab}.json`);
             return res.json();
@@ -25,16 +27,19 @@ function readAloud(nameKebab, play = true) {
             if (play) {
                 return playVOForElement(nameKebab).then(() => {
                     talkEls.forEach(el => el.classList.add('hidden'));
+                    staticEls.forEach(el => el.classList.remove('hidden'));
                     return data;
                 });
             }
 
             talkEls.forEach(el => el.classList.add('hidden'));
+            staticEls.forEach(el => el.classList.remove('hidden'));
             return data;
         })
         .catch(err => {
             console.error('Error di readAloud:', err);
             talkEls.forEach(el => el.classList.add('hidden'));
+            staticEls.forEach(el => el.classList.remove('hidden'));
         });
 }
 
@@ -172,7 +177,7 @@ function loadAndRenderAllVoTexts() {
 
         const nameCamel = kebabToCamel(id);
 
-        fetch(`assets/autosync/${id}.json`)
+        fetchOrBundle(`assets/autosync/${id}.json`)
             .then(res => {
                 if (!res.ok) throw new Error(`Gagal load ${id}.json`);
                 return res.json();

@@ -3,25 +3,12 @@
     <div class="lay flex row justify-center items-center">
         <div class="out1 flex column relative">
             <div id="gantar-ingame" class="lottie-wrap">
-                <dotlottie-player
-                    src="assets/anim/gantar-listen-talk.json"
-                    background="transparent"
-                    speed="1"
-                    renderer="svg"
-                    id="gantar-listen-talk"
-                    class="flex full height-full lt-anim lt-talk hidden lt-flip"
-                    loop
-                    autoplay>
+                <dotlottie-player src="assets/anim/gantar-listen-talk.json" background="transparent" speed="1"
+                    renderer="svg" id="gantar-listen-talk" class="flex full height-full lt-anim lt-talk hidden lt-flip"
+                    loop autoplay>
                 </dotlottie-player>
-                <dotlottie-player
-                    src="assets/anim/gantar-listen.json"
-                    background="transparent"
-                    speed="1"
-                    renderer="svg"
-                    id="gantar-listen"
-                    class="flex full height-full lt-anim lt-static lt-flip"
-                    loop
-                    autoplay>
+                <dotlottie-player src="assets/anim/gantar-listen.json" background="transparent" speed="1" renderer="svg"
+                    id="gantar-listen" class="flex full height-full lt-anim lt-static lt-flip" loop autoplay>
                 </dotlottie-player>
             </div>
             <div class="flex row full justify-end items-center absolute bottom-0 p-7">
@@ -34,7 +21,8 @@
             <div class="msgbox vo-text animate-fadeInRight duration-6 delay-2 easing-ease" id="vo-gantar-game1">
                 <div class="callout bottom"></div>
                 <div class="vo-text-wrap">Kata apa yang kamu dengar?</div>
-                <button class="read-btn ml-6" onclick="soundman.stopChannel('voice'); soundman.play('vo-gantar-game1e');">
+                <button class="read-btn ml-6"
+                    onclick="soundman.stopChannel('voice'); soundman.play('vo-gantar-game1e');">
                     <i data-lucide="volume-2"></i>
                 </button>
             </div>
@@ -48,7 +36,18 @@
 </section>
 <script>
 
-    loadFooter('activity-4');
+    loadHeader('activity-quiz', {
+        maxStep: 5,
+        currentStep: 5,
+        pointIcon: 'assets/correct.svg',
+        backAction: "loadSceneTrans('a4-play/lobby', 'both', 'slide-right')",
+        backLabel: "Kembali"
+    });
+    loadFooter('activity', {
+        title: "<b>Aktivitas 4</b> Bermain bersama Gantar",
+        actionLabel: '<i data-lucide="circle-check"></i>Cek Jawaban',
+        btnClass: "act-study px-4 disabled"
+    });
 
     setTimeout(() => {
         const buttons = {

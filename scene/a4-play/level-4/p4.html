@@ -5,7 +5,8 @@
             <div class="question flex column">
                 <span class="inline">
                     Dengarkan suara berikut
-                    <button class="read-btn mx-3 inline-flex" onclick="soundman.stopChannel('voice'); soundman.play('vo-gantar-game2d');">
+                    <button class="read-btn mx-3 inline-flex"
+                        onclick="soundman.stopChannel('voice'); soundman.play('vo-gantar-game2d');">
                         <i data-lucide="volume-2"></i>
                     </button>
                     lalu susun suku kata di bawah ini menjadi sebuah kalimat yang tepat.
@@ -23,7 +24,18 @@
 </section>
 <script>
 
-    loadFooter('activity-4');
+    loadHeader('activity-quiz', {
+        maxStep: 5,
+        currentStep: 4,
+        pointIcon: 'assets/correct.svg',
+        backAction: "loadSceneTrans('a4-play/lobby', 'both', 'slide-right')",
+        backLabel: "Kembali"
+    });
+    loadFooter('activity', {
+        title: "<b>Aktivitas 4</b> Bermain bersama Gantar",
+        actionLabel: '<i data-lucide="circle-check"></i>Cek Jawaban',
+        btnClass: "act-study px-4 disabled"
+    });
 
     setTimeout(() => {
         const buttons = {

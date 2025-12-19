@@ -2,18 +2,35 @@
 <section class="scene-bg ingame">
     <div class="lay flex column justify-center items-center gap-12">
         <div class="question flex column">
-            <span class="inline">Terbuat dari bahan apa <span class="m-thing">kue</span> yang dibuat oleh <span class="m-char">Kimu</span>?</span>
+            <span class="inline">Terbuat dari bahan apa <span class="m-thing">kue</span> yang dibuat oleh <span
+                    class="m-char">Kimu</span>?</span>
         </div>
         <div class="flex row gap-12 full">
-            <button class="btn-answer act-choice medium full" data-btn-group="soal-a3-p5"><div class="choice-img"><img class="ratio-3-2" src="scene/a3-quiz/img/ca-pisang.svg" alt=""></div>Pisang</button>
-            <button class="btn-answer act-choice medium full" data-btn-group="soal-a3-p5"><div class="choice-img"><img class="ratio-3-2" src="scene/a3-quiz/img/ca-jagung.svg" alt=""></div>Jagung</button>
-            <button class="btn-answer act-choice medium full" data-btn-group="soal-a3-p5"><div class="choice-img"><img class="ratio-3-2" src="scene/a3-quiz/img/ca-nanas.svg" alt=""></div>Nanas</button>
+            <button class="btn-answer act-choice medium full" data-btn-group="soal-a3-p5">
+                <div class="choice-img"><img class="ratio-3-2" src="scene/a3-quiz/img/ca-pisang.svg" alt=""></div>Pisang
+            </button>
+            <button class="btn-answer act-choice medium full" data-btn-group="soal-a3-p5">
+                <div class="choice-img"><img class="ratio-3-2" src="scene/a3-quiz/img/ca-jagung.svg" alt=""></div>Jagung
+            </button>
+            <button class="btn-answer act-choice medium full" data-btn-group="soal-a3-p5">
+                <div class="choice-img"><img class="ratio-3-2" src="scene/a3-quiz/img/ca-nanas.svg" alt=""></div>Nanas
+            </button>
         </div>
     </div>
 </section>
 <script>
 
-    loadFooter('activity-3');
+    loadHeader('activity-quiz', {
+        maxStep: 6,
+        currentStep: 5,
+        backAction: "loadSceneTrans('a3-quiz/load', 'both', 'slide-right')",
+        backLabel: "Kembali"
+    });
+    loadFooter('activity', {
+        title: "<b>Aktivitas 3</b> Kuis Seru",
+        actionLabel: '<i data-lucide="circle-check"></i>Cek Jawaban',
+        btnClass: "act-study px-4 disabled"
+    });
 
     setTimeout(() => {
         const buttons = {
@@ -53,7 +70,7 @@
         setupAnswerButtonListeners();
 
     }, 450);
-    
+
     applyInputBlocker(1000);
 
 </script>

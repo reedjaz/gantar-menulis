@@ -4,7 +4,8 @@
         <div class="out-top flex column justify-center items-center gap-7">
             <div class="hint">Susunlah huruf-huruf berikut ini.</div>
             <div class="question flex column">
-                <span class="inline"><span class="m-thing">Kue bingka</span> <span class="m-char">Kimu</span> rusak karena dia lupa mengoleskan apa?</span>
+                <span class="inline"><span class="m-thing">Kue bingka</span> <span class="m-char">Kimu</span> rusak
+                    karena dia lupa mengoleskan apa?</span>
             </div>
         </div>
         <div class="build-answer flex column gap-4 full justify-center items-center">
@@ -18,7 +19,18 @@
 </section>
 <script>
 
-    loadFooter('activity-4');
+    loadHeader('activity-quiz', {
+        maxStep: 5,
+        currentStep: 4,
+        pointIcon: 'assets/correct.svg',
+        backAction: "loadSceneTrans('a4-play/lobby', 'both', 'slide-right')",
+        backLabel: "Kembali"
+    });
+    loadFooter('activity', {
+        title: "<b>Aktivitas 4</b> Bermain bersama Gantar",
+        actionLabel: '<i data-lucide="circle-check"></i>Cek Jawaban',
+        btnClass: "act-study px-4 disabled"
+    });
 
     setTimeout(() => {
         const buttons = {

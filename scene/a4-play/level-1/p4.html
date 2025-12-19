@@ -14,7 +14,8 @@
             </div>
             <div class="build-answer flex column gap-4 full justify-center items-center">
                 <div class="final-answer flex row fullword2">
-                    <button class="btn-answer extralegible act-answer medium locked" data-btn-group="soal-a4-l1-p4">JA</button>
+                    <button class="btn-answer extralegible act-answer medium locked"
+                        data-btn-group="soal-a4-l1-p4">JA</button>
                 </div>
                 <div class="separator-0 pb-5 mb-3 vertical full border-color-slate-300"></div>
                 <div class="answer-choices flex row fullword2">
@@ -29,7 +30,18 @@
 </section>
 <script>
 
-    loadFooter('activity-4');
+    loadHeader('activity-quiz', {
+        maxStep: 5,
+        currentStep: 4,
+        pointIcon: 'assets/correct.svg',
+        backAction: "loadSceneTrans('a4-play/lobby', 'both', 'slide-right')",
+        backLabel: "Kembali"
+    });
+    loadFooter('activity', {
+        title: "<b>Aktivitas 4</b> Bermain bersama Gantar",
+        actionLabel: '<i data-lucide="circle-check"></i>Cek Jawaban',
+        btnClass: "act-study px-4 disabled"
+    });
 
     setTimeout(() => {
         const buttons = {

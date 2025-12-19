@@ -1,77 +1,105 @@
-$(document).ready(function() {
+document.addEventListener('DOMContentLoaded', () => {
+    // Helper to trigger change event
+    const triggerChange = (el) => {
+        const event = new Event('change', { bubbles: true });
+        el.dispatchEvent(event);
+    };
+
     // Ketika checkbox diubah
-    $('.checkbox input[type="checkbox"]').on('change', function() {
-        var $checkbox = $(this);
-        var isChecked = $checkbox.is(':checked');
-        var isIndeterminate = $checkbox.prop('indeterminate');
-        updateCheckboxClass($checkbox, isChecked, isIndeterminate);
-        updateChildCheckboxes($checkbox);
-        updateParentCheckboxes($checkbox);
+    document.addEventListener('change', (e) => {
+        if (e.target.matches('.checkbox input[type="checkbox"]')) {
+            const checkbox = e.target;
+            const isChecked = checkbox.checked;
+            const isIndeterminate = checkbox.indeterminate;
+
+            updateCheckboxClass(checkbox, isChecked, isIndeterminate);
+            updateChildCheckboxes(checkbox);
+            updateParentCheckboxes(checkbox);
+        }
     });
 
     // Fungsi untuk memperbarui status checkbox anak-anak
-    function updateChildCheckboxes($checkbox) {
-        var isChecked = $checkbox.prop('checked');
-        // Cari semua checkbox anak di dalam <ul> berikutnya
-        var $childCheckboxes = $checkbox.closest('li').find('ul input[type="checkbox"]');
-        $childCheckboxes.prop('checked', isChecked);
-        $childCheckboxes.prop('indeterminate', false);
+    function updateChildCheckboxes(checkbox) {
+        const isChecked = checkbox.checked;
+        const li = checkbox.closest('li');
+        if (!li) return;
+
+        const childCheckboxes = li.querySelectorAll('ul input[type="checkbox"]');
+        childCheckboxes.forEach(child => {
+            child.checked = isChecked;
+            child.indeterminate = false;
+            updateCheckboxClass(child, isChecked, false);
+        });
     }
 
     // Fungsi untuk memperbarui class checkbox
-    function updateCheckboxClass($checkbox, isChecked, isIndeterminate) {
-        $checkbox.removeClass('checked indeterminate');
+    function updateCheckboxClass(checkbox, isChecked, isIndeterminate) {
+        checkbox.classList.remove('checked', 'indeterminate');
 
         if (isChecked) {
-            $checkbox.addClass('checked');
-            $checkbox.prop('checked', true);
-            $checkbox.prop('indeterminate', false);
+            checkbox.classList.add('checked');
+            checkbox.checked = true;
+            checkbox.indeterminate = false;
         } else if (isIndeterminate) {
-            $checkbox.addClass('indeterminate');
-            $checkbox.prop('checked', false); // Indeterminate tidak boleh checked
-            $checkbox.prop('indeterminate', true);
+            checkbox.classList.add('indeterminate');
+            checkbox.checked = false;
+            checkbox.indeterminate = true;
         } else {
-            $checkbox.prop('checked', false);
-            $checkbox.prop('indeterminate', false);
+            checkbox.checked = false;
+            checkbox.indeterminate = false;
         }
     }
 
     // Fungsi untuk memperbarui status checkbox induk
-    function updateParentCheckboxes($checkbox) {
-        var $parentLi = $checkbox.closest('ul').closest('li'); // Cari induk terdekat
-        while ($parentLi.length > 0) {
-            var $parentCheckbox = $parentLi.find('> .checkbox > input[type="checkbox"]');
-            var $childCheckboxes = $parentLi.find('> ul input[type="checkbox"]');
+    function updateParentCheckboxes(checkbox) {
+        const ul = checkbox.closest('ul');
+        if (!ul) return;
 
-            var total = $childCheckboxes.length;
-            var checked = $childCheckboxes.filter(':checked').length;
-            var indeterminate = $childCheckboxes.filter(function() {
-                return $(this).prop('indeterminate');
-            }).length;
+        let parentLi = ul.closest('li');
 
-            $parentCheckbox.removeClass('checked indeterminate');
-            // Set status checkbox induk berdasarkan kondisi anak-anaknya
-            if (checked === total) {
-                $parentCheckbox.addClass('checked');
-                $parentCheckbox.prop('checked', true);
-                $parentCheckbox.prop('indeterminate', false);
+        while (parentLi) {
+            // Find direct parent checkbox (closest previous sibling with class checkbox, or inside .checkbox container)
+            // Structure assumed: <li> <div class="checkbox"><input></div> <ul>...</ul> </li>
+            const parentCheckboxContainer = Array.from(parentLi.children).find(c => c.classList.contains('checkbox'));
+            if (!parentCheckboxContainer) break;
+
+            const parentCheckbox = parentCheckboxContainer.querySelector('input[type="checkbox"]');
+            if (!parentCheckbox) break;
+
+            // Get direct children checkboxes of this Li's UL
+            const childUl = parentLi.querySelector('ul');
+            if (!childUl) break;
+
+            // We only want direct children checkboxes in the list, not nested ones deep down
+            // But the original code used `find`, which implies all descendants? 
+            // Original: $childCheckboxes = $parentLi.find('> ul input[type="checkbox"]'); 
+            // This selector > ul input selects all inputs in the ul.
+
+            const childCheckboxes = Array.from(childUl.querySelectorAll('input[type="checkbox"]'));
+
+            const total = childCheckboxes.length;
+            const checked = childCheckboxes.filter(c => c.checked).length;
+            const indeterminate = childCheckboxes.filter(c => c.indeterminate).length;
+
+            updateCheckboxClass(parentCheckbox, false, false); // Reset first
+
+            if (checked === total && total > 0) {
+                updateCheckboxClass(parentCheckbox, true, false);
             } else if (checked === 0 && indeterminate === 0) {
-                $parentCheckbox.prop('checked', false);
-                $parentCheckbox.prop('indeterminate', false);
+                updateCheckboxClass(parentCheckbox, false, false);
             } else {
-                $parentCheckbox.addClass('indeterminate');
-                $parentCheckbox.prop('checked', false);
-                $parentCheckbox.prop('indeterminate', true);
+                updateCheckboxClass(parentCheckbox, false, true);
             }
 
-            // Cek induk yang lebih atas lagi
-            $parentLi = $parentCheckbox.closest('ul').closest('li');
+            // Go up one level
+            const parentUl = parentLi.closest('ul');
+            if (!parentUl) break;
+            parentLi = parentUl.closest('li');
         }
     }
 
-    // Inisialisasi status awal, cek status semua checkbox
-    $('.checkbox input[type="checkbox"]').each(function() {
-        var $checkbox = $(this);
-        updateParentCheckboxes($checkbox); // Mulai dari setiap checkbox
+    // Inisialisasi status awal
+    document.querySelectorAll('.checkbox input[type="checkbox"]').forEach(checkbox => {
+        updateParentCheckboxes(checkbox);
     });
 });

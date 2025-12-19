@@ -10,15 +10,31 @@
             <button class="btn-answer act-answer medium full" data-btn-group="soal-a3-p4">Pisang</button>
         </div>
         <div class="choice-dst flex row gap-12 full">
-            <button class="btn-answer act-choice medium full text-transparent ratio-16-9 bg-normalize contain" data-btn-group="soal-a3-p1" style="background-image: url('scene/a3-quiz/img/ca-pisang-cho.svg');">Pisang</button>
-            <button class="btn-answer act-choice medium full text-transparent ratio-16-9 bg-normalize contain" data-btn-group="soal-a3-p1" style="background-image: url('scene/a3-quiz/img/ca-kue-cho.svg');">Kue</button>
-            <button class="btn-answer act-choice medium full text-transparent ratio-16-9 bg-normalize contain" data-btn-group="soal-a3-p1" style="background-image: url('scene/a3-quiz/img/ca-minyak-cho.svg');">Minyak</button>
+            <button class="btn-answer act-choice medium full text-transparent ratio-16-9 bg-normalize contain"
+                data-btn-group="soal-a3-p1"
+                style="background-image: url('scene/a3-quiz/img/ca-pisang-cho.svg');">Pisang</button>
+            <button class="btn-answer act-choice medium full text-transparent ratio-16-9 bg-normalize contain"
+                data-btn-group="soal-a3-p1"
+                style="background-image: url('scene/a3-quiz/img/ca-kue-cho.svg');">Kue</button>
+            <button class="btn-answer act-choice medium full text-transparent ratio-16-9 bg-normalize contain"
+                data-btn-group="soal-a3-p1"
+                style="background-image: url('scene/a3-quiz/img/ca-minyak-cho.svg');">Minyak</button>
         </div>
     </div>
 </section>
 <script>
 
-    loadFooter('activity-3');
+    loadHeader('activity-quiz', {
+        maxStep: 6,
+        currentStep: 4,
+        backAction: "loadSceneTrans('a3-quiz/load', 'both', 'slide-right')",
+        backLabel: "Kembali"
+    });
+    loadFooter('activity', {
+        title: "<b>Aktivitas 3</b> Kuis Seru",
+        actionLabel: '<i data-lucide="circle-check"></i>Cek Jawaban',
+        btnClass: "act-study px-4 disabled"
+    });
 
     setTimeout(() => {
         const buttons = {
@@ -47,7 +63,7 @@
         }, 'a3-quiz/p5');
 
     }, 450);
-    
+
     wrongAttempts = 0;
 
     applyInputBlocker(800);

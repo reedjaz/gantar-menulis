@@ -2,10 +2,10 @@
 <section class="scene-bg bg-p3">
 
     <div class="flex row">
-    
+
         <div class="story-area">
         </div>
-    
+
         <div class="story-area">
             <div class="story-text" style="transform: translate(0vh, 29vh);">
                 <button class="read-btn" onclick="readAloud('vo-story-3')"><i data-lucide="volume-2"></i></button>
@@ -19,27 +19,33 @@
                 </div>
             </div>
         </div>
-    
+
     </div>
 
 </section>
 <script>
-    
-    loadFooter('activity-2');
-    
+
+    loadHeader('activity-slim', {
+        maxStep: 9,
+        currentStep: 2
+    });
+    loadFooter('activity-nav', {
+        title: "<b>Aktivitas 2</b> Menyimak Dongeng"
+    });
+
     setTimeout(() => {
         const buttons = {
             reset: document.getElementById('btn-reset'),
             prev: document.getElementById('btn-prev'),
             next: document.getElementById('btn-next'),
         };
-        
+
         const checks = {
             reset: () => { },
             prev: () => { },
             next: () => { }
         };
-        
+
         const actions = {
             reset: () => loadSceneTrans('a2-listen/p0', 'both', 'zoom-out'),
             prev: () => {
@@ -51,7 +57,7 @@
                 progressIncrease();
             },
         };
-        
+
         for (const key in buttons) {
             if (buttons[key]) {
                 checks[key]();
@@ -59,5 +65,5 @@
             }
         }
     }, 450);
-    
+
 </script>

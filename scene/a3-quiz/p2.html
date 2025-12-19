@@ -4,7 +4,8 @@
         <div class="out-top flex column justify-center items-center gap-7">
             <div class="hint">Lengkapi kata berikut ini.</div>
             <div class="question flex column">
-                <span class="inline">Siapa yang membantu <span class="m-char">Kimu</span> ketika membuat kue <span class="m-thing">bingka pisang</span>?</span>
+                <span class="inline">Siapa yang membantu <span class="m-char">Kimu</span> ketika membuat kue <span
+                        class="m-thing">bingka pisang</span>?</span>
             </div>
         </div>
         <div class="build-answer flex column gap-4 full justify-center items-center">
@@ -23,7 +24,17 @@
 </section>
 <script>
 
-    loadFooter('activity-3');
+    loadHeader('activity-quiz', {
+        maxStep: 6,
+        currentStep: 2,
+        backAction: "loadSceneTrans('a3-quiz/load', 'both', 'slide-right')",
+        backLabel: "Kembali"
+    });
+    loadFooter('activity', {
+        title: "<b>Aktivitas 3</b> Kuis Seru",
+        actionLabel: '<i data-lucide="circle-check"></i>Cek Jawaban',
+        btnClass: "act-study px-4 disabled"
+    });
 
     setTimeout(() => {
         const buttons = {
@@ -49,7 +60,7 @@
                         : getFinalAnswerText() === "KAKU"
                             ? "Aduh, apa yang kaku?"
                             : "Apakah kakek ada dalam cerita?";
-                
+
                 showFeedbackSheet(isCorrect, title, message, () => {
                     destroyBuildAnswer();
                     loadSceneTrans('a3-quiz/p3', 'none', 'slide-left');

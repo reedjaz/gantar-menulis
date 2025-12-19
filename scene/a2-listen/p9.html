@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="scene/a2-listen/load.css">
 <section class="scene-bg bg-p9">
-    
+
     <div class="flex row">
-        
+
         <div class="story-area">
             <div class="story-text" style="transform: translate(0vh, 29vh);">
                 <button class="read-btn" onclick="readAloud('vo-story-12')"><i data-lucide="volume-2"></i></button>
@@ -16,7 +16,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="story-area">
             <div class="story-text" style="transform: translate(0vh, 29vh);">
                 <button class="act-correct btn-decide" onclick="
@@ -25,13 +25,19 @@
                 "><i data-lucide="book-open-check"></i>Selesai</button>
             </div>
         </div>
-        
+
     </div>
-    
+
 </section>
 <script>
 
-    loadFooter('activity-2');
+    loadHeader('activity-slim', {
+        maxStep: 9,
+        currentStep: 8
+    });
+    loadFooter('activity-nav', {
+        title: "<b>Aktivitas 2</b> Menyimak Dongeng"
+    });
 
     setTimeout(() => {
         const buttons = {

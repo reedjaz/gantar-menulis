@@ -5,7 +5,8 @@
             <div class="flex column gap-7 justify-center items-center">
                 <div id="star-container" class="flex row"></div>
                 <span id="moti-title" class="title inline animate-fadeInUp duration-6 delay-2 easing-ease"></span>
-                <span id="moti-subtitle" class="subtitle inline animate-fadeInDown duration-6 delay-3 easing-ease"></span>
+                <span id="moti-subtitle"
+                    class="subtitle inline animate-fadeInDown duration-6 delay-3 easing-ease"></span>
             </div>
             <div class="end-info flex full px-10">
                 <div class="end-rec full grow">
@@ -33,25 +34,20 @@
                 <button class="act-listen btn-click full animate-fadeInDown duration-6 delay-7 easing-ease" onclick="
                     loadSceneTrans('a4-play/lobby', 'both', 'zoom-out');
                 ">Lihat Level Lainnya</button>
-                <button id="btn-tryagain" class="act-study btn-enter full animate-fadeInDown duration-6 delay-7 easing-ease" onclick="
+                <button id="btn-tryagain"
+                    class="act-study btn-enter full animate-fadeInDown duration-6 delay-7 easing-ease" onclick="
                     loadSceneTrans('a4-play/level-1/p1', 'none', 'zoom-in');
                 ">Coba Lagi</button>
-                <button id="btn-continue" class="act-study btn-decide full animate-fadeInDown duration-6 delay-7 easing-ease" onclick="
+                <button id="btn-continue"
+                    class="act-study btn-decide full animate-fadeInDown duration-6 delay-7 easing-ease" onclick="
                     loadSceneTrans('a4-play/level-2/p1', 'none', 'slide-left');
                 ">Lanjut ke Level 2</button>
             </div>
         </div>
         <div class="out-end2 flex column relative">
             <div id="gantar-ingame" class="lottie-wrap">
-                <dotlottie-player
-                    src="assets/anim/gantar-correct.json"
-                    background="transparent"
-                    speed="1"
-                    renderer="svg"
-                    id="gantar-endscreen"
-                    class="flex full height-full lt-anim lt-static"
-                    loop
-                    autoplay>
+                <dotlottie-player src="assets/anim/gantar-correct.json" background="transparent" speed="1"
+                    renderer="svg" id="gantar-endscreen" class="flex full height-full lt-anim lt-static" loop autoplay>
                 </dotlottie-player>
             </div>
         </div>
@@ -59,145 +55,148 @@
 </section>
 <script>
 
-(() => {
-    const totalQuestions = parseInt(document.getElementById('activity-progress').max);
-    const correctAnswers = window.score;
-    const percentCorrect = correctAnswers / totalQuestions;
-    let localStarCount = 0;
+    (() => {
+        loadHeader('empty');
+        loadFooter('empty');
 
-    if (percentCorrect >= 1.0) {
-        localStarCount = 3;
-    } else if (percentCorrect >= 0.66) {
-        localStarCount = 2;
-    } else if (percentCorrect >= 0.33) {
-        localStarCount = 1;
-    } else {
-        localStarCount = 0;
-    }
+        const totalQuestions = 5;
+        const correctAnswers = window.score;
+        const percentCorrect = correctAnswers / totalQuestions;
+        let localStarCount = 0;
 
-    const resultCorrect = correctAnswers;
-    const resultWrong = totalQuestions - correctAnswers;
-    const resultDuration = getElapsedTimeBaked();
+        if (percentCorrect >= 1.0) {
+            localStarCount = 3;
+        } else if (percentCorrect >= 0.66) {
+            localStarCount = 2;
+        } else if (percentCorrect >= 0.33) {
+            localStarCount = 1;
+        } else {
+            localStarCount = 0;
+        }
 
-    console.log(`
+        const resultCorrect = correctAnswers;
+        const resultWrong = totalQuestions - correctAnswers;
+        const resultDuration = getElapsedTimeBaked();
+
+        console.log(`
         resultCorrect = ${resultCorrect}
         resultWrong = ${resultWrong}
         resultDuration = ${resultDuration}
     `);
 
-    const dotlottiePlayer = document.getElementById("gantar-endscreen");
+        const dotlottiePlayer = document.getElementById("gantar-endscreen");
 
-    if (localStarCount <= 1) {
-        dotlottiePlayer.setAttribute("src", "assets/anim/gantar-despair.json");
-    } else {
-        dotlottiePlayer.setAttribute("src", "assets/anim/gantar-correct.json");
-    }
-    
-    function setMotivationMessage(stars) {
-        let title = "";
-        let subtitle = "";
-
-        switch (stars) {
-            case 3:
-                title = "Sempurna!";
-                subtitle = "Kamu dapat 3 bintang!";
-                break;
-            case 2:
-                title = "Bagus!";
-                subtitle = "Ini bagian dari belajar. 2 bintang ya!";
-                break;
-            case 1:
-                title = "Tetap semangat!";
-                subtitle = "Kamu dapat 1 bintang.";
-                break;
-            case 0:
-            default:
-                title = "Belum dapat bintang...";
-                subtitle = "Tapi jangan menyerah! Coba lagi yuk!";
-                break;
+        if (localStarCount <= 1) {
+            dotlottiePlayer.setAttribute("src", "assets/anim/gantar-despair.json");
+        } else {
+            dotlottiePlayer.setAttribute("src", "assets/anim/gantar-correct.json");
         }
 
-        document.getElementById("moti-title").innerHTML = title;
-        document.getElementById("moti-subtitle").innerHTML = subtitle;
-    }
+        function setMotivationMessage(stars) {
+            let title = "";
+            let subtitle = "";
 
-    const container = document.getElementById("star-container");
-    let starsHTML = "";
+            switch (stars) {
+                case 3:
+                    title = "Sempurna!";
+                    subtitle = "Kamu dapat 3 bintang!";
+                    break;
+                case 2:
+                    title = "Bagus!";
+                    subtitle = "Ini bagian dari belajar. 2 bintang ya!";
+                    break;
+                case 1:
+                    title = "Tetap semangat!";
+                    subtitle = "Kamu dapat 1 bintang.";
+                    break;
+                case 0:
+                default:
+                    title = "Belum dapat bintang...";
+                    subtitle = "Tapi jangan menyerah! Coba lagi yuk!";
+                    break;
+            }
 
-    for (let i = 0; i < localStarCount; i++) {
-        const delay = (1.25 + i * 0.1).toFixed(2);
-        starsHTML += `
+            document.getElementById("moti-title").innerHTML = title;
+            document.getElementById("moti-subtitle").innerHTML = subtitle;
+        }
+
+        const container = document.getElementById("star-container");
+        let starsHTML = "";
+
+        for (let i = 0; i < localStarCount; i++) {
+            const delay = (1.25 + i * 0.1).toFixed(2);
+            starsHTML += `
         <span class="point-icon animate-zoomOut duration-6 easing-ease" style="animation-delay: ${delay}s;">
             <img src="assets/star.svg" alt="Bintang">
         </span>
     `;
-    }
-
-    container.innerHTML = starsHTML;
-    setMotivationMessage(localStarCount);
-
-    document.getElementById('result-correct').innerHTML = resultCorrect;
-    document.getElementById('result-wrong').innerHTML = resultWrong;
-    document.getElementById('result-duration').innerHTML = resultDuration;
-
-    setTimeout(() => {
-        if (localStarCount <= 1) {
-            soundman.play('fail');
-        } else {
-            soundman.play('victory');
         }
-    }, 450);
 
-    setTimeout(() => {
-        if (localStarCount <= 1) {
-            soundman.play('vo-gantar-despair');
-        } else {
-            const rand = Math.floor(Math.random() * 4) + 1;
-            soundman.play(`vo-gantar-motivate${rand}`);
+        container.innerHTML = starsHTML;
+        setMotivationMessage(localStarCount);
+
+        document.getElementById('result-correct').innerHTML = resultCorrect;
+        document.getElementById('result-wrong').innerHTML = resultWrong;
+        document.getElementById('result-duration').innerHTML = resultDuration;
+
+        setTimeout(() => {
+            if (localStarCount <= 1) {
+                soundman.play('fail');
+            } else {
+                soundman.play('victory');
+            }
+        }, 450);
+
+        setTimeout(() => {
+            if (localStarCount <= 1) {
+                soundman.play('vo-gantar-despair');
+            } else {
+                const rand = Math.floor(Math.random() * 4) + 1;
+                soundman.play(`vo-gantar-motivate${rand}`);
+            }
+        }, 1700);
+
+        applyInputBlocker(2000);
+
+        const endGift = document.querySelector('.end-gift');
+        const storedStars = parseInt(localStorage.getItem('level1-stars') || "0");
+
+        if (localStarCount > storedStars) {
+            localStorage.setItem('level1-stars', localStarCount.toString());
         }
-    }, 1700);
 
-    applyInputBlocker(2000);
+        if (localStarCount >= 2 && endGift.classList.contains('locked')) {
+            const alreadyObtained = localStorage.getItem('level1-gift-obtained') === 'true';
 
-    const endGift = document.querySelector('.end-gift');
-    const storedStars = parseInt(localStorage.getItem('level1-stars') || "0");
-
-    if (localStarCount > storedStars) {
-        localStorage.setItem('level1-stars', localStarCount.toString());
-    }
-
-    if (localStarCount >= 2 && endGift.classList.contains('locked')) {
-        const alreadyObtained = localStorage.getItem('level1-gift-obtained') === 'true';
-
-        if (alreadyObtained) {
-            endGift.classList.remove('locked');
-        } else if (localStarCount < storedStars) {
-            endGift.classList.remove('locked');
-        } else {
-            setTimeout(() => {
-                endGift.classList.add('just-unlocked');
-                soundman.play('unlock');
-
+            if (alreadyObtained) {
+                endGift.classList.remove('locked');
+            } else if (localStarCount < storedStars) {
+                endGift.classList.remove('locked');
+            } else {
                 setTimeout(() => {
-                    endGift.classList.remove('locked');
-                    const obt = Math.floor(Math.random() * 2) + 1;
-                    soundman.play(`vo-gantar-obtain${obt}`);
-                }, 1000);
-            }, 2200);
+                    endGift.classList.add('just-unlocked');
+                    soundman.play('unlock');
+
+                    setTimeout(() => {
+                        endGift.classList.remove('locked');
+                        const obt = Math.floor(Math.random() * 2) + 1;
+                        soundman.play(`vo-gantar-obtain${obt}`);
+                    }, 1000);
+                }, 2200);
+            }
         }
-    }
 
-    if (localStarCount >= 2) {
-        document.getElementById('btn-tryagain').style.display = 'none';
-        document.getElementById('btn-continue').style.display = 'flex';
+        if (localStarCount >= 2) {
+            document.getElementById('btn-tryagain').style.display = 'none';
+            document.getElementById('btn-continue').style.display = 'flex';
 
-        localStorage.setItem('level1-gift-obtained', 'true');
-        localStorage.setItem('level2-unlocked', 'true');
-    } else {
-        document.getElementById('btn-tryagain').style.display = 'flex';
-        document.getElementById('btn-continue').style.display = 'none';
-    }
+            localStorage.setItem('level1-gift-obtained', 'true');
+            localStorage.setItem('level2-unlocked', 'true');
+        } else {
+            document.getElementById('btn-tryagain').style.display = 'flex';
+            document.getElementById('btn-continue').style.display = 'none';
+        }
 
-})();
+    })();
 
 </script>
