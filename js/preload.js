@@ -1,4 +1,4 @@
-function preloadAssets(assets = [], onProgress = () => {}, onComplete = () => {}, timeout = 10000) {
+function preloadAssets(assets = [], onProgress = () => { }, onComplete = () => { }, timeout = 10000) {
     let loaded = 0;
     const total = assets.length;
     let isCompleteCalled = false;
@@ -59,7 +59,8 @@ function preloadAssets(assets = [], onProgress = () => {}, onComplete = () => {}
             document.head.appendChild(script);
 
         } else if (ext === 'json') {
-            fetch(asset)
+            const fetchFn = window.fetchOrBundle ? window.fetchOrBundle : fetch;
+            fetchFn(asset)
                 .then(res => {
                     if (!res.ok) throw new Error(`Gagal fetch ${asset}`);
                     return res.json();

@@ -82,6 +82,13 @@
 	font-style: italic;
 }
 
+@font-face {
+	font-family: 'Embolism Spark';
+	src: url('../assets/fonts/EmbolismSpark.ttf');
+	font-weight: 500;
+	font-style: normal;
+}
+
 .helper {
 	font-family: var(--font-family-helper);
 	font-size: var(--font-size-helper);
@@ -410,6 +417,18 @@ h1 {
 	font-size: calc((var(--unit-13) * 2) + var(--unit-6));
 	line-height: calc((var(--unit-13) * 2) + var(--unit-6));
 	margin: 0 calc(var(--unit-10) * -1);
+}
+
+.big-title-c {
+	font-size: calc(var(--unit-12) * 2);
+	line-height: calc(var(--unit-12) * 2);
+	margin: 0 calc(var(--unit-9) * -1);
+}
+
+.coin-title {
+	width: 120px;
+	height: 120px;
+	background-image: url(../assets/and-coin.svg);
 }
 
 .name-fase {

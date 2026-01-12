@@ -1,0 +1,210 @@
+/* Layer Management */
+:root {
+    --btnwithcaption-wrapper: calc(var(--unit-13) + var(--unit-11));
+    /* 128px approx 8rem? No, 8rem is 128px. 80+48=128 */
+}
+
+.writing-area {
+    position: relative;
+    background-color: var(--transparent);
+    background-image: repeating-linear-gradient(var(--transparent), var(--transparent) calc((var(--unit-11) * 2) - 0.25vh), var(--slate-400) calc(var(--unit-11) * 2));
+    background-size: 100% calc(var(--unit-11) * 2);
+    line-height: calc(var(--unit-11) * 2);
+    width: 100%;
+    height: 100%;
+    border-radius: var(--rounded-20);
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+.writing-area.fade-in {
+    opacity: 1;
+}
+
+.writing-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    transition: opacity 0.2s ease;
+}
+
+/* Text Input Layer */
+#text-input {
+    border: none;
+    outline: none;
+    font-family: 'Embolism Spark', 'Comic Sans MS', 'Chalkboard SE', sans-serif;
+    font-size: var(--unit-13);
+    line-height: calc(var(--unit-11) * 2);
+    resize: none;
+    color: var(--slate-800);
+    overflow: hidden;
+    background: var(--transparent);
+    padding-top: var(--unit-5);
+    letter-spacing: var(--unit-2);
+}
+
+/* Canvas Layer specific overrides */
+#draw-canvas {
+    cursor: crosshair;
+    touch-action: none;
+    padding: 0 !important;
+}
+
+/* Popover Generic */
+.popover {
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: var(--unit-4);
+    border-radius: var(--unit-5);
+    box-shadow: 0 var(--unit-2) var(--unit-6) rgba(0, 0, 0, 0.15);
+    display: flex;
+    gap: var(--unit-3);
+    z-index: 100;
+    border: calc(var(--unit-1) / 2) solid #f3f4f6;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(calc(var(--unit-4) * -1));
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.popover.enter {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+.popover.exit {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(calc(var(--unit-4) * -1));
+}
+
+
+/* Color Popover specifics */
+.color-popover {
+    right: 0;
+    bottom: unset;
+    top: 120%;
+    left: unset;
+    transform: translateY(calc(var(--unit-4) * -1));
+    display: flex;
+    flex-direction: row;
+}
+
+.color-popover.enter {
+    transform: translateY(0);
+}
+
+.color-popover.exit {
+    transform: translateY(calc(var(--unit-4) * -1));
+}
+
+
+.color-dot {
+    width: var(--unit-10);
+    height: var(--unit-10);
+    border-radius: 50%;
+    cursor: pointer;
+    border: calc(var(--unit-1) + 1px) solid white;
+    box-shadow: 0 0 0 var(--unit-1) transparent;
+    transition: all 0.2s;
+}
+
+.color-dot:hover {
+    transform: scale(1.1);
+}
+
+.color-dot.selected {
+    box-shadow: 0 0 0 var(--unit-1) #1f2937;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Tools Popover Grid */
+.tools-grid {
+    display: flex;
+    flex-direction: row;
+    gap: var(--unit-4);
+    /* 0.75rem = 12px = unit-4 */
+    width: max-content;
+}
+
+/* Compact wrapper for inside popover */
+.tools-grid .btntext-wrapper {
+    width: var(--unit-13);
+    /* 5rem = 80px = unit-13 */
+}
+
+.working-area {
+    padding: var(--unit-11) var(--unit-13);
+    font-size: var(--unit-9);
+    line-height: var(--unit-10);
+    background-color: var(--slate-50);
+    border: calc(var(--unit-2) + (var(--unit-1) / 3)) solid var(--slate-300);
+    border-radius: var(--unit-7);
+    position: relative;
+    text-align: left;
+}
+
+#btn-mode-draw {
+    position: relative;
+    /* Context for after */
+    overflow: visible !important;
+    /* Allow chevron to be outside if needed, or inside */
+}
+
+/* Chevron Indicator */
+#btn-mode-draw::after {
+    content: '';
+    position: absolute;
+    right: calc(var(--unit-4) * -1);
+    /* -12px */
+    bottom: 0px;
+    width: 0;
+    height: 0;
+    border-left: calc(var(--unit-2) + 1px) solid transparent;
+    /* 5px */
+    border-right: calc(var(--unit-2) + 1px) solid transparent;
+    border-top: calc(var(--unit-2) + 2px) solid #94a3b8;
+    /* 6px */
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+#btn-mode-draw.active::after {
+    border-top-color: #6366f1;
+    /* Indigo-500 equivalent */
+}
+
+/* Color Badge Indicator */
+#btn-color {
+    position: relative;
+    overflow: visible !important;
+}
+
+#btn-color::after {
+    content: '';
+    position: absolute;
+    right: calc(var(--unit-1) * -1);
+    /* -2px */
+    bottom: calc(var(--unit-1) * -1);
+    width: var(--unit-4);
+    /* 12px */
+    height: var(--unit-4);
+    border-radius: 50%;
+    background-color: var(--active-color, #000000);
+    /* Default black */
+    border: var(--unit-1) solid white;
+    /* 2px */
+    box-shadow: 0 0 var(--unit-1) rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+}

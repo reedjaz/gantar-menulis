@@ -3,7 +3,7 @@ const POPUP_TEMPLATE = `
     <div class="popup-overlay" onclick="closeSettings()"></div>
     <div class="popup-content-wrapper">
         <div class="close-btn btn-cancel" onclick="closeSettings()"><i data-lucide="circle-x"></i></div>
-        <div class="popup-content settings-popup flex column gap-12">
+        <div class="popup-content settings-popup flex column gap-10">
             <h2 class="text-size-13 line-height-13 text-indigo-500 funny weight-bold full text-center">
                 Pengaturan</h2>
             <div class="flex column full gap-10">
@@ -44,7 +44,7 @@ const POPUP_TEMPLATE = `
     <div class="popup-overlay" onclick="closeOther()"></div>
     <div class="popup-content-wrapper">
         <div class="close-btn btn-cancel" onclick="closeOther()"><i data-lucide="circle-x"></i></div>
-        <div class="popup-content other-popup flex column gap-12">
+        <div class="popup-content other-popup flex column gap-10">
             <h2 class="text-size-13 line-height-13 text-indigo-500 funny weight-bold full text-center">
                 Lainnya</h2>
             <div class="flex column full gap-6">
@@ -67,10 +67,10 @@ const POPUP_TEMPLATE = `
     <div class="popup-overlay" onclick="closeExit()"></div>
     <div class="popup-content-wrapper">
         <div class="close-btn btn-cancel" onclick="closeExit()"><i data-lucide="circle-x"></i></div>
-        <div class="popup-content exit-popup flex column gap-12">
+        <div class="popup-content exit-popup flex column gap-10">
             <h2 class="text-size-13 line-height-13 text-indigo-500 funny weight-bold full text-center">
                 Perhatian</h2>
-            <div class="flex full gap-6 justify-center items-center text-center weight-bold text-size-9 line-height-9 pb-5">
+            <div class="flex full gap-6 justify-center items-center text-center weight-bold text-size-9 line-height-10 pb-5">
                 Sudah cukup belajarnya?
             </div>
             <div class="flex column gap-6">
@@ -95,11 +95,11 @@ const POPUP_TEMPLATE = `
     <div class="popup-overlay" onclick="closeConfirmReset()"></div>
     <div class="popup-content-wrapper">
         <div class="close-btn btn-cancel" onclick="closeConfirmReset()"><i data-lucide="circle-x"></i></div>
-        <div class="popup-content confirmreset-popup flex column gap-12">
+        <div class="popup-content confirmreset-popup flex column gap-10">
             <h2 class="text-size-13 line-height-13 text-indigo-500 funny weight-bold full text-center">
                 Perhatian</h2>
             <div
-                class="flex full gap-6 justify-center items-center text-center weight-bold text-size-9 line-height-9 pb-5">
+                class="flex full gap-6 justify-center items-center text-center weight-bold text-size-9 line-height-10 pb-5">
                 Hapus semua data dan mulai dari awal?
             </div>
             <div class="flex column gap-6">
@@ -125,7 +125,7 @@ const POPUP_TEMPLATE = `
     <div class="popup-overlay" onclick="closeBackHome()"></div>
     <div class="popup-content-wrapper">
         <div class="close-btn btn-cancel" onclick="closeBackHome()"><i data-lucide="circle-x"></i></div>
-        <div class="popup-content exit-popup flex column gap-12">
+        <div class="popup-content exit-popup flex column gap-10">
             <h2 class="text-size-13 line-height-13 text-indigo-500 funny weight-bold full text-center">
                 Perhatian</h2>
             <div class="flex full gap-6 justify-center items-center text-center text-balance weight-bold text-size-9 line-height-9 pb-5">

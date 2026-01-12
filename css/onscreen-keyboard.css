@@ -1,0 +1,144 @@
+/* Virtual Keyboard Overlay */
+#virtual-keyboard-overlay {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(110%);
+    width: 95%;
+    max-width: 650px;
+    background: #1f2937;
+    padding: var(--unit-6);
+    padding-bottom: var(--unit-7);
+    border-top-left-radius: var(--rounded-28);
+    border-top-right-radius: var(--rounded-28);
+    box-shadow: 0 calc(var(--unit-2) * -1) var(--unit-6) rgba(0, 0, 0, 0.25);
+    z-index: 99999;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: auto;
+}
+
+#virtual-keyboard-overlay.visible {
+    transform: translateX(-50%) translateY(0);
+}
+
+#virtual-keyboard-overlay.hidden-force {
+    transform: translateX(-50%) translateY(110%);
+}
+
+/* Keys Container */
+.vk-keys-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: var(--unit-1);
+}
+
+/* Row of Keys */
+.vk-row {
+    display: flex;
+    gap: var(--unit-3);
+    width: 100%;
+    justify-content: center;
+}
+
+/* Utility Row (Top keys like Delete, Space) */
+.vk-utility-row {
+    display: flex;
+    gap: var(--unit-3);
+    width: 100%;
+    justify-content: center;
+    margin-top: var(--unit-1);
+}
+
+.vk-btn .lucide,
+.vk-utility-row .lucide {
+    width: var(--unit-8);
+    height: var(--unit-8);
+    top: 0;
+}
+
+/* Base Button Style */
+.vk-btn {
+    background: var(--gray-500);
+    color: var(--white);
+    border: none;
+    border-radius: var(--unit-3);
+    font-size: var(--unit-7);
+    height: var(--unit-11);
+    flex: 1;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 var(--unit-1) 0 var(--gray-700);
+    transition: all 0.1s;
+}
+
+.vk-btn:hover {
+    background: var(--gray-600);
+    border: none;
+}
+
+.vk-btn:active,
+.vk-btn:focus {
+    box-shadow: 0 0 0 var(--gray-500);
+    margin-top: var(--unit-1);
+}
+
+/* Specific Variants */
+.vk-btn-red {
+    background-color: var(--red-500);
+    max-width: var(--unit-12);
+}
+
+.vk-btn-dark {
+    background-color: var(--gray-600);
+    max-width: var(--unit-12);
+}
+
+.vk-btn-blue {
+    background-color: var(--blue-500);
+}
+
+.vk-btn-wide {
+    min-width: calc(var(--unit-11) + var(--unit-3));
+    max-width: calc(var(--unit-12) + var(--unit-3));
+}
+
+.vk-btn-space {
+    flex: 3;
+    max-width: none;
+}
+
+.vk-btn-mic {
+    background-color: var(--slate-600);
+    color: white;
+    max-width: var(--unit-12);
+    transition: all 0.3s ease;
+}
+
+.vk-btn-mic.recording {
+    background-color: var(--red-500);
+    animation: pulseMic 1.5s infinite;
+}
+
+@keyframes pulseMic {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    }
+
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
+}

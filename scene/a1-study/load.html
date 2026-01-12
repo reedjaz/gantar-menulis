@@ -6,7 +6,7 @@
     </div>
 </section>
 <script>
-    
+
     var progressBar = document.getElementById('loading-progress');
     var assets = [
         'assets/anim/gantar-correct.json',
@@ -19,22 +19,21 @@
         'assets/anim/gantar-listen-talk.json',
         'assets/anim/gantar-despair.json'
     ];
-    
-    if (progressBar) progressBar.max = assets.length;
-    
+
     preloadAssets(assets,
-    (loaded, total) => {
-        if (progressBar) progressBar.value = loaded;
-    },
-    () => {
-        console.log("Semua aset sudah preload, siap lanjut!");
-        const loadingScreen = document.querySelector('.loading-screen');
-        if (loadingScreen) loadingScreen.remove();
-        loadSceneTrans('a1-study/p0', 'both', 'zoom-in');
-    }
+        (loaded, total) => {
+            if (progressBar) progressBar.value = loaded;
+        },
+        () => {
+            console.log("Semua aset sudah preload, siap lanjut!");
+            const loadingScreen = document.querySelector('.loading-screen');
+            if (loadingScreen) loadingScreen.remove();
+            // loadSceneTrans('a1-study/p0', 'both', 'zoom-in');
+            loadSceneTrans('a1-study/writing_demo', 'none', 'zoom-in');
+        }
     );
 
     delete progressBar;
     delete assets;
-    
+
 </script>

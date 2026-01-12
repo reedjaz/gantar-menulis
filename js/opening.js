@@ -131,7 +131,7 @@ fetchOrBundle('scene/splash.html')
 
         // Attempt Auto-Fullscreen (Best Effort)
         try {
-            goFullscreen();
+            // goFullscreen();
         } catch (e) {
             console.log("Auto-fullscreen blocked by browser (normal behavior). Waiting for user interaction.");
         }
@@ -139,7 +139,7 @@ fetchOrBundle('scene/splash.html')
         window.startGame = function () {
             // Mapping Logic handled in loadSceneTrans -> fetch.js:sceneBGMMap
             loadSceneTrans('title', 'both', 'zoom-out');
-            goFullscreen();
+            // goFullscreen();
         };
 
         document.querySelectorAll('#screen2, #screen3').forEach(el => {

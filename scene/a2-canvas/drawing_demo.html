@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Drawing Demo - Gantar Menulis</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../css/output.css">
+    <link rel="stylesheet" href="../../css/color.css">
+    <link rel="stylesheet" href="../../css/font.css">
+    <link rel="stylesheet" href="../../css/audio.css">
+    <link rel="stylesheet" href="../../css/button.css">
+    <link rel="stylesheet" href="../../css/popup.css">
+    <link rel="stylesheet" href="../../css/load.css">
+
+    <!-- Scene Specific Style -->
+    <link rel="stylesheet" href="../../css/drawing.css">
+</head>
+
+<body class="bg-gray-50">
+
+    <!-- Main Layout: Column (Canvas Body Only) -->
+    <section class="scene">
+
+        <!-- BODY: Row (Sidebar + Canvas) (Fills remaining space) -->
+        <div class="flex-1 w-full h-full relative overflow-hidden flex row z-10">
+
+            <!-- Sidebar -->
+            <aside class="sidebar shadow-sm flex-none">
+                <!-- Shapes -->
+                <div class="tool-section">
+                    <h3>Bentuk</h3>
+                    <div class="tool-grid">
+                        <div class="btntext-wrapper flex column text-center gap-2 justify-center items-center">
+                            <button class="act-neutral btntext btn-click ico-sm" id="tool-rect"
+                                onclick="setTool('rect')">
+                                <i data-lucide="square"></i>
+                            </button>
+                        </div>
+                        <div class="btntext-wrapper flex column text-center gap-2 justify-center items-center">
+                            <button class="act-neutral btntext btn-click ico-sm" id="tool-circle"
+                                onclick="setTool('circle')">
+                                <i data-lucide="circle"></i>
+                            </button>
+                        </div>
+                        <div class="btntext-wrapper flex column text-center gap-2 justify-center items-center">
+                            <button class="act-neutral btntext btn-click ico-sm" id="tool-triangle"
+                                onclick="setTool('triangle')">
+                                <i data-lucide="triangle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drawing Tools -->
+                <div class="tool-section">
+                    <h3>Alat Gambar</h3>
+                    <div class="tool-grid">
+                        <div class="btntext-wrapper flex column text-center gap-2 justify-center items-center">
+                            <button class="act-study btntext btn-click ico-sm active" id="tool-brush"
+                                onclick="setTool('brush')">
+                                <i data-lucide="pencil"></i>
+                            </button>
+                        </div>
+                        <div class="btntext-wrapper flex column text-center gap-2 justify-center items-center">
+                            <button class="act-neutral btntext btn-click ico-sm" id="tool-eraser"
+                                onclick="setTool('eraser')">
+                                <i data-lucide="eraser"></i>
+                            </button>
+                        </div>
+                        <!-- Fill Tool -->
+                        <div class="btntext-wrapper flex column text-center gap-2 justify-center items-center">
+                            <button class="act-neutral btntext btn-click ico-sm" id="tool-fill"
+                                onclick="setTool('fill')">
+                                <i data-lucide="paint-bucket"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Colors -->
+                <div class="tool-section">
+                    <h3>Warna</h3>
+                    <div class="color-grid" id="color-palette"></div>
+                </div>
+            </aside>
+
+            <!-- Main Canvas Area -->
+            <main class="flex-1 relative bg-slate-50 p-6 flex items-center justify-center overflow-hidden">
+                <div class="canvas-wrapper" id="canvas-container">
+
+                    <!-- Floating Toolbar -->
+                    <div class="canvas-toolbar">
+                        <button class="act-neutral btntext btn-click ico-sm" onclick="undo()" id="btn-undo"
+                            style="opacity: 0.5; pointer-events: none;">
+                            <i data-lucide="undo-2"></i>
+                        </button>
+                        <button class="act-neutral btntext btn-click ico-sm" onclick="redo()" id="btn-redo"
+                            style="opacity: 0.5; pointer-events: none;">
+                            <i data-lucide="redo-2"></i>
+                        </button>
+                        <div style="width: 1px; height: 24px; background: #e2e8f0; margin: 0 4px;"></div>
+                        <button class="act-wrong btntext btn-click ico-sm" onclick="openConfirmClear()">
+                            <i data-lucide="trash-2"></i>
+                        </button>
+                        <button class="act-study btntext btn-click ico-sm" onclick="saveCanvas()">
+                            <i data-lucide="save"></i>
+                        </button>
+                    </div>
+
+                    <canvas id="draw-canvas"></canvas>
+                </div>
+            </main>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Scripts -->
+    <script src="../../js/fetch.js"></script>
+    <script src="../../js/soundman.js"></script>
+    <script src="../../js/ui-manager.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Scene Logic -->
+    <script src="../../js/drawing.js"></script>
+</body>
+
+</html>

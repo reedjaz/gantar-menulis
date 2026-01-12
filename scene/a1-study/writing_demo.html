@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Writing Demo - Gantar Menulis</title>
+
+    <!-- Styles -->
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../css/main.css">
+
+    <!-- Scene Specific Style -->
+    <link rel="stylesheet" href="../../css/writing.css">
+    <link rel="stylesheet" href="../../css/onscreen-keyboard.css">
+</head>
+
+<body class="bg-gray-50">
+
+    <section class="scene-bg ingame">
+        <div class="lay flex row justify-center items-center">
+
+            <!-- Main Card Container -->
+            <div class="working-area flex column full height-full bg-white rounded-24 shadow-1 overflow-hidden relative"
+                id="writing-card-container">
+
+                <!-- Header Toolbar -->
+                <div class="flex row justify-between items-center">
+
+                    <div class="flex row gap-3">
+                        <div class="text-slate-800">Topik pilihanmu:</div>
+                        <div class="text-slate-800 weight-bold" id="topik-pilihan">Diriku</div>
+                    </div>
+
+                    <div class="flex row">
+
+                        <!-- Undo / Redo Group (Visible only in Draw Mode) -->
+                        <div id="undo-redo-group" class="flex row items-center">
+                            <div
+                                class="btntext-wrapper flex column text-center gap-5 justify-center items-center relative">
+                                <button class="act-neutral btntext btn-click ico-sm" onclick="undo()" id="btn-undo"
+                                    style="opacity: 0.5; pointer-events: none;">
+                                    <i data-lucide="undo-2"></i>
+                                </button>
+                                <span class="text-size-5 line-height-5 weight-regular text-slate-800">Urungkan</span>
+                            </div>
+                            <div
+                                class="btntext-wrapper flex column text-center gap-5 justify-center items-center relative">
+                                <button class="act-neutral btntext btn-click ico-sm" onclick="redo()" id="btn-redo"
+                                    style="opacity: 0.5; pointer-events: none;">
+                                    <i data-lucide="redo-2"></i>
+                                </button>
+                                <span class="text-size-5 line-height-5 weight-regular text-slate-800">Ulangi</span>
+                            </div>
+                        </div>
+
+                        <!-- Color (Moved here) -->
+                        <div id="color-wrapper"
+                            class="btntext-wrapper flex column text-center gap-5 justify-center items-center relative">
+                            <button class="act-neutral btntext btn-click ico-sm" id="btn-color"
+                                onclick="toggleColorPicker()">
+                                <i data-lucide="palette"></i>
+                                <div id="color-badge"></div>
+                            </button>
+                            <span class="text-size-5 line-height-5 weight-regular text-slate-800">Warna</span>
+                            <div id="color-popover" class="popover color-popover hidden"></div>
+                        </div>
+
+                        <!-- Keyboard Mode -->
+                        <div class="btntext-wrapper flex column text-center gap-5 justify-center items-center relative">
+                            <button class="act-neutral btntext btn-click ico-sm" id="btn-mode-keyboard"
+                                onclick="handleClickKeyboard()">
+                                <i data-lucide="keyboard"></i>
+                            </button>
+                            <span class="text-size-5 line-height-5 weight-regular text-slate-800">Kibor</span>
+                        </div>
+
+                        <!-- Handwriting Mode -->
+                        <div class="btntext-wrapper flex column text-center gap-5 justify-center items-center relative">
+                            <button class="act-study btntext btn-click ico-sm active" id="btn-mode-draw"
+                                onclick="handleClickDraw()">
+                                <i data-lucide="pencil"></i>
+                            </button>
+                            <span class="text-size-5 line-height-5 weight-regular text-slate-800">Tulis Tangan</span>
+
+                            <!-- Tools Popover (Refactored & Fixed) -->
+                            <div id="tools-popover" class="popover tools-grid hidden">
+                                <!-- Pencil -->
+                                <div class="btntext-wrapper flex column text-center gap-2 justify-center items-center">
+                                    <button class="act-study btntext btn-click ico-sm" onclick="setTool('pencil')"
+                                        id="btn-tool-pencil">
+                                        <i data-lucide="pencil"></i>
+                                    </button>
+                                    <span class="text-size-5 line-height-5 weight-regular text-slate-800">Pensil</span>
+                                </div>
+                                <!-- Eraser -->
+                                <div class="btntext-wrapper flex column text-center gap-2 justify-center items-center">
+                                    <button class="act-neutral btntext btn-click ico-sm" onclick="setTool('eraser')"
+                                        id="btn-tool-eraser">
+                                        <i data-lucide="eraser"></i>
+                                    </button>
+                                    <span
+                                        class="text-size-5 line-height-5 weight-regular text-slate-800">Penghapus</span>
+                                </div>
+                                <!-- Clear -->
+                                <div class="btntext-wrapper flex column text-center gap-2 justify-center items-center">
+                                    <button class="act-wrong btntext btn-click ico-sm" onclick="openConfirmClear()">
+                                        <i data-lucide="trash"></i>
+                                    </button>
+                                    <span
+                                        class="text-size-5 line-height-5 weight-regular text-slate-800">Bersihkan</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <!-- Content Area (Z-Index increased to cover footer) -->
+                <div class="relative flex-1 bg-gray-50 overflow-hidden">
+                    <div class="writing-area shadow-inner" id="box-area">
+                        <!-- Placeholder for Handwriting -->
+                        <div id="handwriting-placeholder" class="writing-layer"
+                            style="color: #9ca3af; pointer-events: none; font-family: 'Embolism Spark'; font-size: var(--unit-13); padding-top: var(--unit-5); letter-spacing: var(--unit-2); opacity: 1;">
+                            Tulis ceritamu di sini...
+                        </div>
+
+                        <!-- Text Layer -->
+                        <textarea id="text-input" class="writing-layer writing-input"
+                            placeholder="Ketik ceritamu di sini..."></textarea>
+
+                        <!-- Canvas Layer -->
+                        <canvas id="draw-canvas" class="writing-layer writing-canvas"></canvas>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Scripts -->
+    <script src="../../js/offline_bundle.js"></script>
+    <script src="../../js/config.js"></script>
+    <script src="../../js/fetch.js"></script>
+    <script src="../../js/soundman.js"></script>
+    <script src="../../js/ui-manager.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Scene Logic -->
+    <script src="../../js/onscreen-keyboard.js"></script>
+    <script src="../../js/writing.js"></script>
+</body>
+
+</html>

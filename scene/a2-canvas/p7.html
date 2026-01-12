@@ -1,0 +1,78 @@
+<link rel="stylesheet" href="scene/a2-listen/load.css">
+<section class="scene-bg bg-p7">
+
+    <div class="flex row">
+
+        <div class="story-area">
+            <div class="story-text" style="transform: translate(-18vh, 31vh);">
+                <button class="read-btn" onclick="readAloud('vo-story-9')"><i data-lucide="volume-2"></i></button>
+                <div id="vo-story-9" class="vo-text">
+                    <span class="vo-text-wrap text-white">
+                        Kimu hias saja kuenya!
+                    </span>
+                    <div class="read-backdrop" style="background-color: #5D8E88;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="story-area">
+            <div class="story-text" style="transform: translate(0vh, 31vh);">
+                <button class="read-btn" onclick="readAloud('vo-story-10')"><i data-lucide="volume-2"></i></button>
+                <div id="vo-story-10" class="vo-text">
+                    <span class="vo-text-wrap">
+                        Hias, hias, hias.
+                    </span>
+                    <div class="read-backdrop">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<script>
+
+    loadHeader('activity-slim', {
+        maxStep: 9,
+        currentStep: 6
+    });
+    loadFooter('activity-nav', {
+        title: "<b>Aktivitas 2</b> Menyimak Dongeng"
+    });
+
+    setTimeout(() => {
+        const buttons = {
+            reset: document.getElementById('btn-reset'),
+            prev: document.getElementById('btn-prev'),
+            next: document.getElementById('btn-next'),
+        };
+
+        const checks = {
+            reset: () => { },
+            prev: () => { },
+            next: () => { }
+        };
+
+        const actions = {
+            reset: () => loadSceneTrans('a2-listen/p0', 'both', 'zoom-out'),
+            prev: () => {
+                loadSceneTrans('a2-listen/p6', 'footer', 'slide-right');
+                progressDecrease();
+            },
+            next: () => {
+                loadSceneTrans('a2-listen/p8', 'footer', 'slide-left');
+                progressIncrease();
+            },
+        };
+
+        for (const key in buttons) {
+            if (buttons[key]) {
+                checks[key]();
+                buttons[key].onclick = actions[key];
+            }
+        }
+    }, 450);
+
+</script>

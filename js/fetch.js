@@ -68,6 +68,28 @@ function loadHTML(selector, url, options = {}) {
             const el = document.querySelector(selector);
             if (!el) throw new Error(`Elemen ${selector} tidak ditemukan di DOM`);
 
+            // [Path Fix] Normalisasi path relative (../../) menjadi path root (./) saat di-load di index.html
+            // Hapus referensi ke global assets yang sudah ada di index.html untuk mencegah double-loading/error
+            const assetsToRemove = [
+                'main.css', 'offline_bundle.js', 'config.js', 'fetch.js',
+                'soundman.js', 'ui-manager.js', 'lucide.js', 'dotlottie-player.js'
+            ];
+
+            // 1. Remove global style links
+            html = html.replace(/<link[^>]+href="[^"]*css\/main\.css"[^>]*>/g, '');
+
+            // 2. Remove global scripts
+            assetsToRemove.forEach(asset => {
+                const regex = new RegExp(`<script[^>]+src="[^"]*${asset}"[^>]*><\/script>`, 'g');
+                html = html.replace(regex, '');
+            });
+
+            // 3. Fix relative paths (../../css -> css, ../../js -> js)
+            html = html.replace(/\.\.\/\.\.\/css\//g, 'css/');
+            html = html.replace(/\.\.\/\.\.\/js\//g, 'js/');
+            // Handle single level ../ if any (case by case, but usually scenes are 1 or 2 deep)
+            // html = html.replace(/\.\.\/css\//g, 'css/'); 
+
             el.innerHTML = html;
             injectOfflineLottie(el);
 
@@ -316,6 +338,25 @@ function loadSceneTrans(name, hideHUD = 'none', transition = 'fade') {
     return fetchOrBundle(`scene/${name}.html`)
         .then(res => res.text())
         .then(html => {
+            // [Path Fix] Apply same normalization as loadHTML
+            const assetsToRemove = [
+                'main.css', 'offline_bundle.js', 'config.js', 'fetch.js',
+                'soundman.js', 'ui-manager.js', 'lucide.js', 'dotlottie-player.js'
+            ];
+
+            // 1. Remove global style links
+            html = html.replace(/<link[^>]+href="[^"]*css\/main\.css"[^>]*>/g, '');
+
+            // 2. Remove global scripts
+            assetsToRemove.forEach(asset => {
+                const regex = new RegExp(`<script[^>]+src="[^"]*${asset}"[^>]*><\/script>`, 'g');
+                html = html.replace(regex, '');
+            });
+
+            // 3. Fix relative paths
+            html = html.replace(/\.\.\/\.\.\/css\//g, 'css/');
+            html = html.replace(/\.\.\/\.\.\/js\//g, 'js/');
+
             newWrapper.innerHTML = html;
             injectOfflineLottie(newWrapper);
             newWrapper.classList.add(`scene-${name.replace(/\//g, '-')}`);
