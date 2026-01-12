@@ -5,7 +5,7 @@
     left: 50%;
     transform: translateX(-50%) translateY(110%);
     width: 95%;
-    max-width: 650px;
+    max-width: calc(var(--unit-14) * 8);
     background: #1f2937;
     padding: var(--unit-6);
     padding-bottom: var(--unit-7);

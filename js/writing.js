@@ -207,7 +207,8 @@ try {
             canvas.height = rect.height;
 
             if (tempCanvas.width > 0 && tempCanvas.height > 0) {
-                ctx.drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width, canvas.height);
+                // Draw 1:1 to prevent distortion ("gepeng")
+                ctx.drawImage(tempCanvas, 0, 0);
             }
         }
 
@@ -222,9 +223,10 @@ try {
 
         ctx.lineJoin = 'round';
         ctx.lineCap = 'round';
-        
+
         // Responsive Line Width (Base 5 for pencil)
         const baseSize = currentTool === 'eraser' ? 20 : 5;
+        // recalculate linewidth
         ctx.lineWidth = getResponsiveLineWidth(baseSize);
 
         if (ctx.globalCompositeOperation !== 'destination-out') {
@@ -632,7 +634,7 @@ try {
     function getResponsiveLineWidth(baseSize) {
         if (!canvas) return baseSize;
         // Assume 1024px is the standard "base" width for the design
-        const scale = canvas.width / 1024; 
+        const scale = canvas.width / 1024;
         // Clamp minimum scale to avoid invisible lines on very small screens (though unlikely)
         // and keeping it reasonable.
         return Math.max(2, baseSize * scale);
