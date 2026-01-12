@@ -94,6 +94,7 @@ try {
     let isDrawing = false;
     let currentColor = '#000000'; // Set default explicit
     let currentMode = 'draw';
+    let currentTool = 'pencil'; // Initialize currentTool
     let lastPoint = { x: 0, y: 0 };
 
     // Set initial badge color
@@ -221,7 +222,11 @@ try {
 
         ctx.lineJoin = 'round';
         ctx.lineCap = 'round';
-        ctx.lineWidth = 5;
+        
+        // Responsive Line Width (Base 5 for pencil)
+        const baseSize = currentTool === 'eraser' ? 20 : 5;
+        ctx.lineWidth = getResponsiveLineWidth(baseSize);
+
         if (ctx.globalCompositeOperation !== 'destination-out') {
             ctx.strokeStyle = currentColor;
         }
@@ -451,7 +456,7 @@ try {
         if (tool === 'pencil') {
             ctx.globalCompositeOperation = 'source-over';
             ctx.strokeStyle = currentColor;
-            ctx.lineWidth = 5;
+            ctx.lineWidth = getResponsiveLineWidth(5);
 
             if (btnPencil) {
                 btnPencil.classList.remove('act-neutral');
@@ -464,7 +469,7 @@ try {
 
         } else if (tool === 'eraser') {
             ctx.globalCompositeOperation = 'destination-out';
-            ctx.lineWidth = 20;
+            ctx.lineWidth = getResponsiveLineWidth(20);
 
             if (btnPencil) {
                 btnPencil.classList.remove('act-study');
@@ -622,6 +627,16 @@ try {
 
     // Initial Icon Init if needed (though ui-manager usually handles, or keyboard script)
     if (window.lucide) lucide.createIcons();
+
+    // --- HELPER: Responsive Line Width ---
+    function getResponsiveLineWidth(baseSize) {
+        if (!canvas) return baseSize;
+        // Assume 1024px is the standard "base" width for the design
+        const scale = canvas.width / 1024; 
+        // Clamp minimum scale to avoid invisible lines on very small screens (though unlikely)
+        // and keeping it reasonable.
+        return Math.max(2, baseSize * scale);
+    }
 
 } catch (e) {
     console.error("Error in writing script:", e);

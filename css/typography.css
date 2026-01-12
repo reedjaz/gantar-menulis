@@ -426,8 +426,8 @@ h1 {
 }
 
 .coin-title {
-	width: 120px;
-	height: 120px;
+	width: calc(var(--unit-9) * 4);
+	height: calc(var(--unit-9) * 4);
 	background-image: url(../assets/and-coin.svg);
 }
 
