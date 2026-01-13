@@ -1,97 +1,77 @@
 [
   {
-    "word": "Melalui",
+    "word": "Coba",
     "start": 0,
-    "end": 0.66
+    "end": 0.37
   },
   {
-    "word": "pembelajaran",
-    "start": 0.66,
-    "end": 1.25
+    "word": "pikirkan,",
+    "start": 0.37,
+    "end": 1.37
   },
   {
-    "word": "ini,",
-    "start": 1.25,
-    "end": 1.92
+    "word": "apa",
+    "start": 1.37,
+    "end": 1.87
   },
   {
-    "word": "kamu",
-    "start": 1.92,
-    "end": 2.36
+    "word": "yang",
+    "start": 1.87,
+    "end": 2.12
   },
   {
-    "word": "dapat",
-    "start": 2.36,
+    "word": "biasa",
+    "start": 2.12,
     "end": 2.67
   },
   {
-    "word": "menyimak",
+    "word": "kamu",
     "start": 2.67,
-    "end": 3.17
+    "end": 2.99
   },
   {
-    "word": "dan",
-    "start": 3.17,
-    "end": 3.31
+    "word": "lakukan",
+    "start": 2.99,
+    "end": 3.53
   },
   {
-    "word": "membaca",
-    "start": 3.31,
-    "end": 3.78
+    "word": "di",
+    "start": 3.53,
+    "end": 3.66
   },
   {
-    "word": "<span class=\"m-thing\">dongeng</span>",
-    "start": 3.78,
-    "end": 4.13
+    "word": "rumah?",
+    "start": 3.66,
+    "end": 4.55
   },
   {
-    "word": "<span class=\"m-thing\">fabel</span>.",
-    "start": 4.13,
-    "end": 5.25
+    "word": "Apakah",
+    "start": 4.55,
+    "end": 5.01
   },
   {
-    "word": "Kamu",
-    "start": 5.25,
-    "end": 5.81
+    "word": "kamu",
+    "start": 5.01,
+    "end": 5.32
   },
   {
-    "word": "juga",
-    "start": 5.81,
-    "end": 6.11
+    "word": "suka",
+    "start": 5.32,
+    "end": 5.61
   },
   {
-    "word": "dapat",
-    "start": 6.11,
-    "end": 6.34
+    "word": "<span class=\"m-thing\">menulis</span>",
+    "start": 5.61,
+    "end": 6.04
   },
   {
-    "word": "mempelajari",
-    "start": 6.34,
-    "end": 7.01
+    "word": "atau",
+    "start": 6.04,
+    "end": 6.31
   },
   {
-    "word": "<span class=\"m-key\">nilai-nilai</span>",
-    "start": 7.01,
-    "end": 7.58
-  },
-  {
-    "word": "<span class=\"m-key\">baik</span>",
-    "start": 7.58,
-    "end": 8.06
-  },
-  {
-    "word": "pada",
-    "start": 8.06,
-    "end": 8.5
-  },
-  {
-    "word": "kisah",
-    "start": 8.5,
-    "end": 8.7
-  },
-  {
-    "word": "ini.",
-    "start": 8.7,
-    "end": 9.21
+    "word": "<span class=\"m-thing\">menggambar</span>?",
+    "start": 6.31,
+    "end": 7.03
   }
 ]

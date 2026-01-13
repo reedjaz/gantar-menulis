@@ -162,14 +162,14 @@ const POPUP_TEMPLATE = `
                     <button class="read-btn" onclick="readAloud('vo-intro')"><i data-lucide="volume-2"></i></button>
                     <div id="vo-intro" class="vo-text">
                         <span class="vo-text-wrap">
-                            Kimu ingin menjenguk Nara yang sedang sakit. Ia ingin membuat kue bingka pisang kesukaan Nara. Tapi sayangnya, bahan-bahan kuenya belum lengkap. Ayo bantu Kimu dengan menyelesaikan tugas-tugas dan kumpulkan semua bahan yang dibutuhkan!
+                            Rani ingin membuat album cerita tentang<br>kehidupan sehari-hari. Tapi, halaman-halamannya<br>masih kosong! Yuk, bantu Rani menyelesaikan<br>setiap level untuk mengisi albumnya!
                         </span>
                     </div>
                 </div>
                 <button class="act-study btn-enter animate-fadeInDown duration-6 delay-7 easing-ease" onclick="
                     closeIntro();
                     loadSceneTrans('a4-play/lobby', 'both', 'zoom-in');
-                ">Ayo Bantu Kimu!</button>
+                ">Ayo Bantu Rani!</button>
             </div>
         </div>
     </div>
@@ -190,7 +190,7 @@ const POPUP_TEMPLATE = `
                     <button class="read-btn" onclick="readAloud('vo-outro')"><i data-lucide="volume-2"></i></button>
                     <div id="vo-outro" class="vo-text">
                         <span class="vo-text-wrap">
-                            Hebat, kamu telah mengumpulkan semua bahan yang diperlukan oleh Kimu untuk membuat kue. Sekarang Kimu dapat menjenguk Nara dan memberikan kue buatannya.
+                            Hebat, kamu telah membantu Rani mengisi semua halaman albumnya! Sekarang album cerita Rani sudah lengkap dan siap dibaca kapan saja!
                         </span>
                     </div>
                 </div>

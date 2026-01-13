@@ -1,82 +1,97 @@
 [
   {
-    "word": "Sebelum",
+    "word": "Hari",
     "start": 0,
-    "end": 0.52
+    "end": 0.41
+  },
+  {
+    "word": "ini",
+    "start": 0.41,
+    "end": 0.91
   },
   {
     "word": "kita",
-    "start": 0.52,
-    "end": 0.78
+    "start": 0.91,
+    "end": 1.2
   },
   {
-    "word": "mulai",
-    "start": 0.78,
-    "end": 1.06
+    "word": "akan",
+    "start": 1.2,
+    "end": 1.44
   },
   {
-    "word": "mendengarkan",
-    "start": 1.06,
-    "end": 1.7
+    "word": "melakukan",
+    "start": 1.44,
+    "end": 1.99
   },
   {
-    "word": "dongeng,",
-    "start": 1.7,
-    "end": 2.37
+    "word": "aktivitas",
+    "start": 1.99,
+    "end": 2.77
   },
   {
-    "word": "<span class=\"m-char\">Gantar</span>",
-    "start": 2.37,
-    "end": 2.93
+    "word": "belajar",
+    "start": 2.77,
+    "end": 3.54
   },
   {
-    "word": "punya",
-    "start": 2.93,
-    "end": 3.17
+    "word": "seru,",
+    "start": 3.54,
+    "end": 4.26
   },
   {
-    "word": "<span class=\"m-thing\">pertanyaan</span>",
-    "start": 3.17,
-    "end": 3.61
+    "word": "yaitu",
+    "start": 4.26,
+    "end": 4.98
   },
   {
-    "word": "<span class=\"m-thing\">seru</span>",
-    "start": 3.61,
-    "end": 3.98
+    "word": "<span class=\"m-thing\">menulis</span>",
+    "start": 4.98,
+    "end": 5.65
   },
   {
-    "word": "untuk",
-    "start": 3.98,
-    "end": 4.24
+    "word": "dan",
+    "start": 5.65,
+    "end": 5.85
   },
   {
-    "word": "kamu.",
-    "start": 4.24,
-    "end": 5.16
+    "word": "<span class=\"m-thing\">menggambar</span>",
+    "start": 5.85,
+    "end": 6.53
   },
   {
-    "word": "Apakah",
-    "start": 5.16,
-    "end": 5.56
+    "word": "tentang",
+    "start": 6.53,
+    "end": 6.99
   },
   {
-    "word": "kamu",
-    "start": 5.56,
-    "end": 5.81
+    "word": "diri",
+    "start": 6.99,
+    "end": 7.29
   },
   {
-    "word": "siap",
-    "start": 5.81,
-    "end": 6.18
+    "word": "sendiri,",
+    "start": 7.29,
+    "end": 8.05
   },
   {
-    "word": "untuk",
-    "start": 6.18,
-    "end": 6.41
+    "word": "keluarga,",
+    "start": 8.05,
+    "end": 8.95
   },
   {
-    "word": "menjawabnya?",
-    "start": 6.41,
-    "end": 7.34
+    "word": "atau",
+    "start": 8.95,
+    "end": 9.46
+  },
+  {
+    "word": "lingkungan",
+    "start": 9.46,
+    "end": 9.97
+  },
+  {
+    "word": "sekitar.",
+    "start": 9.97,
+    "end": 10.92
   }
 ]

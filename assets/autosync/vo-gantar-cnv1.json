@@ -1,0 +1,77 @@
+[
+  {
+    "word": "Sekarang",
+    "start": 0,
+    "end": 0.67
+  },
+  {
+    "word": "waktunya",
+    "start": 0.67,
+    "end": 1.1
+  },
+  {
+    "word": "kamu",
+    "start": 1.1,
+    "end": 1.44
+  },
+  {
+    "word": "menulis",
+    "start": 1.44,
+    "end": 1.97
+  },
+  {
+    "word": "dan",
+    "start": 1.97,
+    "end": 2.19
+  },
+  {
+    "word": "menggambar",
+    "start": 2.19,
+    "end": 2.75
+  },
+  {
+    "word": "<span class=\"m-thing\">cerita</span>",
+    "start": 2.75,
+    "end": 3.34
+  },
+  {
+    "word": "<span class=\"m-thing\">sederhana</span>.",
+    "start": 3.34,
+    "end": 4.64
+  },
+  {
+    "word": "Yuk,",
+    "start": 4.64,
+    "end": 4.93
+  },
+  {
+    "word": "kita",
+    "start": 4.93,
+    "end": 5.16
+  },
+  {
+    "word": "mulai",
+    "start": 5.16,
+    "end": 5.49
+  },
+  {
+    "word": "dari",
+    "start": 5.49,
+    "end": 5.77
+  },
+  {
+    "word": "memilih",
+    "start": 5.77,
+    "end": 6.21
+  },
+  {
+    "word": "<span class=\"m-thing\">topik</span>",
+    "start": 6.21,
+    "end": 6.58
+  },
+  {
+    "word": "ceritamu!",
+    "start": 6.58,
+    "end": 7.42
+  }
+]

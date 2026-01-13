@@ -1,62 +1,72 @@
 [
   {
-    "word": "Jika",
+    "word": "Kita",
     "start": 0,
-    "end": 0.42
+    "end": 0.8
   },
   {
-    "word": "kamu",
-    "start": 0.42,
-    "end": 0.74
-  },
-  {
-    "word": "mendengar",
-    "start": 0.74,
-    "end": 1.14
-  },
-  {
-    "word": "kabar",
-    "start": 1.14,
-    "end": 1.43
-  },
-  {
-    "word": "teman",
-    "start": 1.43,
-    "end": 1.7
-  },
-  {
-    "word": "yang",
-    "start": 1.7,
-    "end": 1.85
-  },
-  {
-    "word": "sakit,",
-    "start": 1.85,
-    "end": 2.71
-  },
-  {
-    "word": "apa",
-    "start": 2.71,
-    "end": 3
-  },
-  {
-    "word": "yang",
-    "start": 3,
-    "end": 3.12
+    "word": "juga",
+    "start": 0.8,
+    "end": 1.08
   },
   {
     "word": "akan",
-    "start": 3.12,
-    "end": 3.4
+    "start": 1.08,
+    "end": 1.36
   },
   {
-    "word": "kamu",
-    "start": 3.4,
-    "end": 3.61
+    "word": "berlatih",
+    "start": 1.36,
+    "end": 2.04
   },
   {
-    "word": "lakukan?",
-    "start": 3.61,
-    "end": 4.35
+    "word": "menyusun",
+    "start": 2.04,
+    "end": 2.64
+  },
+  {
+    "word": "kalimat",
+    "start": 2.64,
+    "end": 3.11
+  },
+  {
+    "word": "pendek",
+    "start": 3.11,
+    "end": 3.84
+  },
+  {
+    "word": "dan",
+    "start": 3.84,
+    "end": 4.04
+  },
+  {
+    "word": "membuat",
+    "start": 4.04,
+    "end": 4.44
+  },
+  {
+    "word": "gambar",
+    "start": 4.44,
+    "end": 5.03
+  },
+  {
+    "word": "yang",
+    "start": 5.03,
+    "end": 5.26
+  },
+  {
+    "word": "sesuai",
+    "start": 5.26,
+    "end": 5.73
+  },
+  {
+    "word": "dengan",
+    "start": 5.73,
+    "end": 5.99
+  },
+  {
+    "word": "cerita.",
+    "start": 5.99,
+    "end": 6.4
   }
 ]

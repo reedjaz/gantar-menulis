@@ -1,0 +1,82 @@
+[
+  {
+    "word": "Sekarang,",
+    "start": 0,
+    "end": 0.7
+  },
+  {
+    "word": "kita",
+    "start": 0.7,
+    "end": 1
+  },
+  {
+    "word": "coba",
+    "start": 1,
+    "end": 1.24
+  },
+  {
+    "word": "<span class=\"m-thing\">kuis</span>",
+    "start": 1.24,
+    "end": 1.46
+  },
+  {
+    "word": "<span class=\"m-thing\">singkat</span>,",
+    "start": 1.46,
+    "end": 1.8
+  },
+  {
+    "word": "ya!",
+    "start": 1.8,
+    "end": 2.47
+  },
+  {
+    "word": "Jawab",
+    "start": 2.47,
+    "end": 2.88
+  },
+  {
+    "word": "dengan",
+    "start": 2.88,
+    "end": 3.22
+  },
+  {
+    "word": "tenang",
+    "start": 3.22,
+    "end": 3.89
+  },
+  {
+    "word": "dan",
+    "start": 3.89,
+    "end": 4.14
+  },
+  {
+    "word": "jangan",
+    "start": 4.14,
+    "end": 4.43
+  },
+  {
+    "word": "lupa",
+    "start": 4.43,
+    "end": 4.79
+  },
+  {
+    "word": "membaca",
+    "start": 4.79,
+    "end": 5.22
+  },
+  {
+    "word": "soalnya",
+    "start": 5.22,
+    "end": 5.57
+  },
+  {
+    "word": "dengan",
+    "start": 5.57,
+    "end": 5.84
+  },
+  {
+    "word": "baik.",
+    "start": 5.84,
+    "end": 6.35
+  }
+]

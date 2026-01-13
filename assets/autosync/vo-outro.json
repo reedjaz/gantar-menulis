@@ -2,111 +2,101 @@
   {
     "word": "Hebat,",
     "start": 0,
-    "end": 0.95
+    "end": 0.86
   },
   {
     "word": "kamu",
-    "start": 0.95,
-    "end": 1.53
+    "start": 0.86,
+    "end": 1.2
   },
   {
     "word": "telah",
-    "start": 1.53,
-    "end": 1.77
+    "start": 1.2,
+    "end": 1.44
   },
   {
-    "word": "mengumpulkan",
-    "start": 1.77,
-    "end": 2.42
+    "word": "membantu",
+    "start": 1.44,
+    "end": 1.9
+  },
+  {
+    "word": "Rani",
+    "start": 1.9,
+    "end": 2.2
+  },
+  {
+    "word": "mengisi",
+    "start": 2.2,
+    "end": 2.71
   },
   {
     "word": "semua",
-    "start": 2.42,
-    "end": 2.77
+    "start": 2.71,
+    "end": 3.11
   },
   {
-    "word": "bahan",
-    "start": 2.77,
-    "end": 3.36
+    "word": "halaman",
+    "start": 3.11,
+    "end": 3.53
   },
   {
-    "word": "yang",
-    "start": 3.36,
-    "end": 3.57
-  },
-  {
-    "word": "diperlukan",
-    "start": 3.57,
-    "end": 4.11
-  },
-  {
-    "word": "oleh",
-    "start": 4.11,
-    "end": 4.42
-  },
-  {
-    "word": "Kimu",
-    "start": 4.42,
-    "end": 4.96
-  },
-  {
-    "word": "untuk",
-    "start": 4.96,
-    "end": 5.28
-  },
-  {
-    "word": "membuat",
-    "start": 5.28,
-    "end": 5.68
-  },
-  {
-    "word": "kue.",
-    "start": 5.68,
-    "end": 6.51
+    "word": "albumnya!",
+    "start": 3.53,
+    "end": 4.35
   },
   {
     "word": "Sekarang",
-    "start": 6.51,
-    "end": 7.34
+    "start": 4.35,
+    "end": 4.82
   },
   {
-    "word": "Kimu",
-    "start": 7.34,
-    "end": 7.67
+    "word": "album",
+    "start": 4.82,
+    "end": 5.14
   },
   {
-    "word": "dapat",
-    "start": 7.67,
-    "end": 7.98
+    "word": "cerita",
+    "start": 5.14,
+    "end": 5.49
   },
   {
-    "word": "menjenguk",
-    "start": 7.98,
-    "end": 8.4
+    "word": "Rani",
+    "start": 5.49,
+    "end": 5.76
   },
   {
-    "word": "Nara",
-    "start": 8.4,
-    "end": 9.05
+    "word": "sudah",
+    "start": 5.76,
+    "end": 6.02
+  },
+  {
+    "word": "lengkap",
+    "start": 6.02,
+    "end": 6.43
   },
   {
     "word": "dan",
-    "start": 9.05,
-    "end": 9.24
+    "start": 6.43,
+    "end": 6.72
   },
   {
-    "word": "memberikan",
-    "start": 9.24,
-    "end": 9.98
+    "word": "siap",
+    "start": 6.72,
+    "end": 7.09
   },
   {
-    "word": "kue",
-    "start": 9.98,
-    "end": 10.32
+    "word": "dibaca",
+    "start": 7.09,
+    "end": 7.69
   },
   {
-    "word": "buatannya.",
-    "start": 10.32,
-    "end": 11.47
+    "word": "kapan",
+    "start": 7.69,
+    "end": 8.03
+  },
+  {
+    "word": "saja!",
+    "start": 8.03,
+    "end": 8.65
   }
 ]

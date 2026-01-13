@@ -2,96 +2,111 @@
   {
     "word": "Halo,",
     "start": 0,
-    "end": 0.87
+    "end": 0.83
   },
   {
     "word": "aku",
-    "start": 0.87,
-    "end": 1.16
+    "start": 0.83,
+    "end": 1.26
   },
   {
     "word": "<span class=\"m-char\">Gantar</span>,",
-    "start": 1.16,
-    "end": 2.01
+    "start": 1.26,
+    "end": 2.06
   },
   {
     "word": "si",
-    "start": 2.01,
-    "end": 2.28
+    "start": 2.06,
+    "end": 2.32
   },
   {
     "word": "gajah",
-    "start": 2.28,
+    "start": 2.32,
     "end": 2.71
   },
   {
     "word": "pintar!",
     "start": 2.71,
-    "end": 3.59
+    "end": 3.72
   },
   {
     "word": "Hari",
-    "start": 3.59,
-    "end": 3.82
+    "start": 3.72,
+    "end": 3.97
   },
   {
     "word": "ini",
-    "start": 3.82,
-    "end": 4.45
+    "start": 3.97,
+    "end": 4.6
   },
   {
     "word": "kita",
-    "start": 4.45,
-    "end": 5.03
+    "start": 4.6,
+    "end": 4.86
   },
   {
     "word": "akan",
-    "start": 5.03,
-    "end": 5.49
+    "start": 4.86,
+    "end": 5.13
   },
   {
     "word": "belajar",
-    "start": 5.49,
-    "end": 5.76
+    "start": 5.13,
+    "end": 5.57
   },
   {
-    "word": "hal",
-    "start": 5.76,
-    "end": 5.99
+    "word": "menulis",
+    "start": 5.57,
+    "end": 6.14
+  },
+  {
+    "word": "dan",
+    "start": 6.14,
+    "end": 6.43
+  },
+  {
+    "word": "menggambar",
+    "start": 6.43,
+    "end": 7.01
+  },
+  {
+    "word": "dengan",
+    "start": 7.01,
+    "end": 7.37
+  },
+  {
+    "word": "cara",
+    "start": 7.37,
+    "end": 7.78
+  },
+  {
+    "word": "yang",
+    "start": 7.78,
+    "end": 8.04
   },
   {
     "word": "seru",
-    "start": 5.99,
-    "end": 6.55
+    "start": 8.04,
+    "end": 8.44
   },
   {
-    "word": "dari",
-    "start": 6.55,
-    "end": 6.89
-  },
-  {
-    "word": "cerita",
-    "start": 6.89,
-    "end": 7.19
-  },
-  {
-    "word": "dongeng!",
-    "start": 7.19,
-    "end": 8.27
+    "word": "banget!",
+    "start": 8.44,
+    "end": 9.2
   },
   {
     "word": "Yuk,",
-    "start": 8.27,
-    "end": 8.6
+    "start": 9.2,
+    "end": 9.51
   },
   {
     "word": "belajar",
-    "start": 8.6,
-    "end": 9.05
+    "start": 9.51,
+    "end": 9.97
   },
   {
     "word": "bersamaku!",
-    "start": 9.05,
-    "end": 9.77
+    "start": 9.97,
+    "end": 10.75
   }
 ]

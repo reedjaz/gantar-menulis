@@ -1,0 +1,92 @@
+[
+  {
+    "word": "Pilih",
+    "start": 0,
+    "end": 0.51
+  },
+  {
+    "word": "satu",
+    "start": 0.51,
+    "end": 0.81
+  },
+  {
+    "word": "<span class=\"m-thing\">topik</span>",
+    "start": 0.81,
+    "end": 1.31
+  },
+  {
+    "word": "yang",
+    "start": 1.31,
+    "end": 1.7
+  },
+  {
+    "word": "paling",
+    "start": 1.7,
+    "end": 2.04
+  },
+  {
+    "word": "ingin",
+    "start": 2.04,
+    "end": 2.4
+  },
+  {
+    "word": "kamu",
+    "start": 2.4,
+    "end": 2.67
+  },
+  {
+    "word": "tulis",
+    "start": 2.67,
+    "end": 3.21
+  },
+  {
+    "word": "hari",
+    "start": 3.21,
+    "end": 3.47
+  },
+  {
+    "word": "ini.",
+    "start": 3.47,
+    "end": 4.3
+  },
+  {
+    "word": "Kamu",
+    "start": 4.3,
+    "end": 4.71
+  },
+  {
+    "word": "akan",
+    "start": 4.71,
+    "end": 4.96
+  },
+  {
+    "word": "menulis",
+    "start": 4.96,
+    "end": 5.5
+  },
+  {
+    "word": "beberapa",
+    "start": 5.5,
+    "end": 6.09
+  },
+  {
+    "word": "kalimat",
+    "start": 6.09,
+    "end": 6.55
+  },
+  {
+    "word": "sederhana",
+    "start": 6.55,
+    "end": 7.65
+  },
+  {
+    "word": "dan",
+    "start": 7.65,
+    "end": 8.07
+  },
+  {
+    "word": "menggambarnya.",
+    "start": 8.07,
+    "end": 9.22
+  }
+]

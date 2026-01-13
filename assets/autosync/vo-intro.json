@@ -1,167 +1,107 @@
 [
   {
-    "word": "Kimu",
+    "word": "Rani",
     "start": 0,
-    "end": 0.72
+    "end": 0.56
   },
   {
     "word": "ingin",
-    "start": 0.72,
-    "end": 1.11
-  },
-  {
-    "word": "menjenguk",
-    "start": 1.11,
-    "end": 1.57
-  },
-  {
-    "word": "Nara",
-    "start": 1.57,
-    "end": 2.2
-  },
-  {
-    "word": "yang",
-    "start": 2.2,
-    "end": 2.39
-  },
-  {
-    "word": "sedang",
-    "start": 2.39,
-    "end": 2.81
-  },
-  {
-    "word": "sakit.",
-    "start": 2.81,
-    "end": 3.79
-  },
-  {
-    "word": "Ia",
-    "start": 3.79,
-    "end": 4.34
-  },
-  {
-    "word": "ingin",
-    "start": 4.34,
-    "end": 4.65
+    "start": 0.56,
+    "end": 0.81
   },
   {
     "word": "membuat",
-    "start": 4.65,
-    "end": 5.15
+    "start": 0.81,
+    "end": 1.21
   },
   {
-    "word": "kue",
-    "start": 5.15,
-    "end": 5.35
+    "word": "album",
+    "start": 1.21,
+    "end": 1.7
   },
   {
-    "word": "bingka",
-    "start": 5.35,
-    "end": 5.77
+    "word": "cerita",
+    "start": 1.7,
+    "end": 2.23
   },
   {
-    "word": "pisang",
-    "start": 5.77,
-    "end": 6.31
+    "word": "tentang<br>",
+    "start": 2.23,
+    "end": 2.72
   },
   {
-    "word": "kesukaan",
-    "start": 6.31,
-    "end": 6.85
+    "word": "kehidupan",
+    "start": 2.72,
+    "end": 3.26
   },
   {
-    "word": "Nara.",
-    "start": 6.85,
-    "end": 7.93
+    "word": "sehari-hari.",
+    "start": 3.26,
+    "end": 4.37
   },
   {
-    "word": "Tapi",
-    "start": 7.93,
-    "end": 8.22
+    "word": "Tapi,",
+    "start": 4.37,
+    "end": 5.01
   },
   {
-    "word": "sayangnya,",
-    "start": 8.22,
-    "end": 9.24
+    "word": "halaman-halamannya<br>",
+    "start": 5.01,
+    "end": 6.21
   },
   {
-    "word": "bahan-bahan",
-    "start": 9.24,
-    "end": 10.03
+    "word": "masih",
+    "start": 6.21,
+    "end": 6.5
   },
   {
-    "word": "kuenya",
-    "start": 10.03,
-    "end": 10.76
+    "word": "kosong!",
+    "start": 6.5,
+    "end": 7.34
   },
   {
-    "word": "belum",
-    "start": 10.76,
-    "end": 11.06
-  },
-  {
-    "word": "lengkap.",
-    "start": 11.06,
-    "end": 12.29
-  },
-  {
-    "word": "Ayo",
-    "start": 12.29,
-    "end": 12.64
+    "word": "Yuk,",
+    "start": 7.34,
+    "end": 7.79
   },
   {
     "word": "bantu",
-    "start": 12.64,
-    "end": 12.95
+    "start": 7.79,
+    "end": 8.15
   },
   {
-    "word": "Kimu",
-    "start": 12.95,
-    "end": 13.74
+    "word": "Rani",
+    "start": 8.15,
+    "end": 8.49
   },
   {
-    "word": "dengan",
-    "start": 13.74,
-    "end": 14.09
+    "word": "menyelesaikan<br>",
+    "start": 8.49,
+    "end": 9.21
   },
   {
-    "word": "menyelesaikan",
-    "start": 14.09,
-    "end": 14.85
+    "word": "setiap",
+    "start": 9.21,
+    "end": 9.65
   },
   {
-    "word": "tugas-tugas",
-    "start": 14.85,
-    "end": 15.86
+    "word": "level",
+    "start": 9.65,
+    "end": 10.32
   },
   {
-    "word": "dan",
-    "start": 15.86,
-    "end": 16.09
+    "word": "untuk",
+    "start": 10.32,
+    "end": 10.82
   },
   {
-    "word": "kumpulkan",
-    "start": 16.09,
-    "end": 16.9
+    "word": "mengisi",
+    "start": 10.82,
+    "end": 11.42
   },
   {
-    "word": "semua",
-    "start": 16.9,
-    "end": 17.37
-  },
-  {
-    "word": "bahan",
-    "start": 17.37,
-    "end": 17.89
-  },
-  {
-    "word": "yang",
-    "start": 17.89,
-    "end": 18.19
-  },
-  {
-    "word": "dibutuhkan!",
-    "start": 18.19,
-    "end": 19.32
+    "word": "albumnya!",
+    "start": 11.42,
+    "end": 12.43
   }
 ]

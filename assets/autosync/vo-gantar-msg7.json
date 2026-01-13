@@ -1,107 +1,67 @@
 [
   {
-    "word": "<span class=\"m-thing\">Dongeng</span>",
+    "word": "Kalau",
     "start": 0,
-    "end": 0.8
+    "end": 0.35
   },
   {
-    "word": "adalah",
-    "start": 0.8,
-    "end": 1.32
+    "word": "kamu",
+    "start": 0.35,
+    "end": 0.65
   },
   {
-    "word": "cerita",
-    "start": 1.32,
-    "end": 1.79
+    "word": "diminta",
+    "start": 0.65,
+    "end": 1.11
   },
   {
-    "word": "yang",
-    "start": 1.79,
-    "end": 1.99
+    "word": "menulis",
+    "start": 1.11,
+    "end": 1.44
   },
   {
-    "word": "dibuat",
-    "start": 1.99,
-    "end": 2.67
+    "word": "sesuatu,",
+    "start": 1.44,
+    "end": 2.42
   },
   {
-    "word": "untuk",
-    "start": 2.67,
-    "end": 3.07
-  },
-  {
-    "word": "<span class=\"m-key\">menghibur</span>",
-    "start": 3.07,
-    "end": 3.81
-  },
-  {
-    "word": "<span class=\"m-key\">dan</span>",
-    "start": 3.81,
-    "end": 4.12
-  },
-  {
-    "word": "<span class=\"m-key\">memberi</span>",
-    "start": 4.12,
-    "end": 4.56
-  },
-  {
-    "word": "<span class=\"m-key\">pelajaran</span>.",
-    "start": 4.56,
-    "end": 5.53
-  },
-  {
-    "word": "Tokohnya",
-    "start": 5.53,
-    "end": 6.32
-  },
-  {
-    "word": "bisa",
-    "start": 6.32,
-    "end": 6.63
-  },
-  {
-    "word": "berupa",
-    "start": 6.63,
-    "end": 6.94
-  },
-  {
-    "word": "manusia,",
-    "start": 6.94,
-    "end": 7.97
-  },
-  {
-    "word": "hewan,",
-    "start": 7.97,
-    "end": 8.83
-  },
-  {
-    "word": "atau",
-    "start": 8.83,
-    "end": 9.21
-  },
-  {
-    "word": "bahkan",
-    "start": 9.21,
-    "end": 9.65
-  },
-  {
-    "word": "benda",
-    "start": 9.65,
-    "end": 10.26
+    "word": "mana",
+    "start": 2.42,
+    "end": 2.8
   },
   {
     "word": "yang",
-    "start": 10.26,
-    "end": 10.5
+    "start": 2.8,
+    "end": 3.06
   },
   {
-    "word": "dapat",
-    "start": 10.5,
-    "end": 10.85
+    "word": "paling",
+    "start": 3.06,
+    "end": 3.43
   },
   {
-    "word": "berbicara!",
-    "start": 10.85,
-    "end": 11.68
+    "word": "ingin",
+    "start": 3.43,
+    "end": 3.82
+  },
+  {
+    "word": "kamu",
+    "start": 3.82,
+    "end": 4.19
+  },
+  {
+    "word": "ceritakan",
+    "start": 4.19,
+    "end": 4.69
+  },
+  {
+    "word": "lebih",
+    "start": 4.69,
+    "end": 4.92
+  },
+  {
+    "word": "dulu?",
+    "start": 4.92,
+    "end": 5.51
   }
 ]
